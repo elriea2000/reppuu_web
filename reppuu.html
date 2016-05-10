@@ -7,7 +7,7 @@
 </HEAD>
 <BODY>
 
-<H1>§‹ó’lÅ“K‰»ƒc[ƒ‹g—ó•—Œ‚Å‚ ‚è‚Ü‚·Ihƒuƒ‰ƒEƒU”Å v0.2</H1>
+<H1>ŠÍ‚±‚ê§‹ó’lÅ“K‰»ƒc[ƒ‹g—ó•—Œ‚Å‚ ‚è‚Ü‚·Ihƒuƒ‰ƒEƒU”Å v0.3</H1>
 <P>
 <A href="readme.txt" target="new">‚¹‚Â‚ß‚¢</A>
 </P>
@@ -38,7 +38,69 @@
 
 <TABLE>
 <TR>
-<TH colspan="2">1. <INPUT id="kvalid1" type="checkbox" value="0"/><INPUT type="text" id="kname1"name="kname1" value="" /></TH>
+<TH colspan="2">1. <INPUT id="kvalid1" type="checkbox" value="0"/><INPUT type="text" id="kname1"name="kname1" value="" /><BR />
+<SELECT id="knamelist1" name="knamelist1" onChange="onChange_form1_knamelist('knamelist1')">
+<OPTION value="_erase">=‚È‚µ=</OPTION>
+<OPTION value="_Dummy_Normal_cc">Ÿ³‹K‹ó•êE‰ü“ñŸ</OPTION>
+<OPTION value="Souryuu_cc">‘“—´‰ü“ñ</OPTION>
+<OPTION value="Hiryy_cc">”ò—´‰ü“ñ</OPTION>
+<OPTION value="Shoukaku_cc">ãÄ’ß‰ü“ñ</OPTION>
+<OPTION value="Shoukaku_cc2">ãÄ’ß‰ü“ñb</OPTION>
+<OPTION value="Zuikaku_cc">’ß‰ü“ñ</OPTION>
+<OPTION value="Zuikaku_cc2">’ß‰ü“ñb</OPTION>
+<OPTION value="_Dummy_Normal_c">Ÿ³‹K‹ó•êE‰üŸ</OPTION>
+<OPTION value="Akagi_c">Ôé‰ü</OPTION>
+<OPTION value="Kaga_c">‰Á‰ê‰ü</OPTION>
+<OPTION value="Souryuu_c">‘“—´‰ü</OPTION>
+<OPTION value="Hiryuu_c">”ò—´‰ü</OPTION>
+<OPTION value="Shoukaku_c">ãÄ’ß‰ü</OPTION>
+<OPTION value="Zuikaku_c">’ß‰ü</OPTION>
+<OPTION value="Taihou_c">‘å–P‰ü</OPTION>
+<OPTION value="Unryuu_c">‰_—´‰ü</OPTION>
+<OPTION value="Amagi_c">“Vé‰ü</OPTION>
+<OPTION value="Katsuragi_c">Š‹é‰ü</OPTION>
+<OPTION value="GrafZeppelin_c">Graf Zeppelin‰ü</OPTION>
+<OPTION value="_Dummy_Light_cc">ŸŒy‹ó•êE‰ü“ñŸ</OPTION>
+<OPTION value="Ryuujou_cc">—´éˆ‰ü“ñ</OPTION>
+<OPTION value="Jun-you_cc">”¹‘é‰ü“ñ</OPTION>
+<OPTION value="Chitose_3cc">çÎq‰ü“ñ</OPTION>
+<OPTION value="Chiyoda_3cc">ç‘ã“cq‰ü“ñ</OPTION>
+<OPTION value="_Dummy_Light_c">ŸŒy‹ó•êE‰üŸ</OPTION>
+<OPTION value="Houshou_c">–PãÄ‰ü</OPTION>
+<OPTION value="Ryuujou_c">—´éˆ‰ü</OPTION>
+<OPTION value="Hiyou_c">”ò‘é‰ü</OPTION>
+<OPTION value="Jun-you_c">”¹‘é‰ü</OPTION>
+<OPTION value="Shouhou_c">Ë–P‰ü</OPTION>
+<OPTION value="Zuihou_c">–P‰ü</OPTION>
+<OPTION value="Chitose_3c">çÎq‰ü</OPTION>
+<OPTION value="Chiyoda_3c">ç‘ã“cq‰ü</OPTION>
+<OPTION value="Ryuuhou_c">—´–P‰ü</OPTION>
+<OPTION value="_Dummy_Normal">Ÿ³‹K‹ó•êŸ</OPTION>
+<OPTION value="Akagi">Ôé</OPTION>
+<OPTION value="Kaga">‰Á‰ê</OPTION>
+<OPTION value="Souryuu">‘“—´</OPTION>
+<OPTION value="Hiryuu">”ò—´</OPTION>
+<OPTION value="Shoukaku">ãÄ’ß</OPTION>
+<OPTION value="Zuikaku">’ß</OPTION>
+<OPTION value="Taihou">‘å–P</OPTION>
+<OPTION value="Unryuu">‰_—´</OPTION>
+<OPTION value="Amagi">“Vé</OPTION>
+<OPTION value="Katsuragi">Š‹é</OPTION>
+<OPTION value="GrafZeppelin">Graf Zeppelin</OPTION>
+<OPTION value="_Dummy_Light">ŸŒy‹ó•êŸ</OPTION>
+<OPTION value="Houshou">–PãÄ</OPTION>
+<OPTION value="Ryuujou">—´éˆ</OPTION>
+<OPTION value="Hiyou">”ò‘é</OPTION>
+<OPTION value="Jun-you">”¹‘é</OPTION>
+<OPTION value="Shouhou">Ë–P</OPTION>
+<OPTION value="Zuihou">–P</OPTION>
+<OPTION value="Chitose_3">çÎq</OPTION>
+<OPTION value="Chiyoda_3">ç‘ã“cq</OPTION>
+<OPTION value="Ryuuhou">—´–P</OPTION>
+<OPTION value="_Dummy_Others">Ÿ‚»‚Ì‘¼Ÿ</OPTION>
+<OPTION value="Akitsumaru_c">‚ ‚«‚ÂŠÛ‰ü</OPTION>
+</SELECT>
+</TH>
 </TR>
 <TR>
 <TD><INPUT id="acvalid1_1" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum1_1" type="text" name="acnum1_1" value="0" /></TD><TD width="30px"><SPAN id="actext1_1"></SPAN></TD>
@@ -64,7 +126,69 @@
 
 <TABLE>
 <TR>
-<TH colspan="2">2. <INPUT id="kvalid2" type="checkbox" value="0"/><INPUT id="kname2" type="text" name="kname2" value="" /></TH>
+<TH colspan="2">2. <INPUT id="kvalid2" type="checkbox" value="0"/><INPUT id="kname2" type="text" name="kname2" value="" /><BR />
+<SELECT id="knamelist2" name="knamelist2" onChange="onChange_form1_knamelist('knamelist2')">
+<OPTION value="_erase">=‚È‚µ=</OPTION>
+<OPTION value="_Dummy_Normal_cc">Ÿ³‹K‹ó•êE‰ü“ñŸ</OPTION>
+<OPTION value="Souryuu_cc">‘“—´‰ü“ñ</OPTION>
+<OPTION value="Hiryy_cc">”ò—´‰ü“ñ</OPTION>
+<OPTION value="Shoukaku_cc">ãÄ’ß‰ü“ñ</OPTION>
+<OPTION value="Shoukaku_cc2">ãÄ’ß‰ü“ñb</OPTION>
+<OPTION value="Zuikaku_cc">’ß‰ü“ñ</OPTION>
+<OPTION value="Zuikaku_cc2">’ß‰ü“ñb</OPTION>
+<OPTION value="_Dummy_Normal_c">Ÿ³‹K‹ó•êE‰üŸ</OPTION>
+<OPTION value="Akagi_c">Ôé‰ü</OPTION>
+<OPTION value="Kaga_c">‰Á‰ê‰ü</OPTION>
+<OPTION value="Souryuu_c">‘“—´‰ü</OPTION>
+<OPTION value="Hiryuu_c">”ò—´‰ü</OPTION>
+<OPTION value="Shoukaku_c">ãÄ’ß‰ü</OPTION>
+<OPTION value="Zuikaku_c">’ß‰ü</OPTION>
+<OPTION value="Taihou_c">‘å–P‰ü</OPTION>
+<OPTION value="Unryuu_c">‰_—´‰ü</OPTION>
+<OPTION value="Amagi_c">“Vé‰ü</OPTION>
+<OPTION value="Katsuragi_c">Š‹é‰ü</OPTION>
+<OPTION value="GrafZeppelin_c">Graf Zeppelin‰ü</OPTION>
+<OPTION value="_Dummy_Light_cc">ŸŒy‹ó•êE‰ü“ñŸ</OPTION>
+<OPTION value="Ryuujou_cc">—´éˆ‰ü“ñ</OPTION>
+<OPTION value="Jun-you_cc">”¹‘é‰ü“ñ</OPTION>
+<OPTION value="Chitose_3cc">çÎq‰ü“ñ</OPTION>
+<OPTION value="Chiyoda_3cc">ç‘ã“cq‰ü“ñ</OPTION>
+<OPTION value="_Dummy_Light_c">ŸŒy‹ó•êE‰üŸ</OPTION>
+<OPTION value="Houshou_c">–PãÄ‰ü</OPTION>
+<OPTION value="Ryuujou_c">—´éˆ‰ü</OPTION>
+<OPTION value="Hiyou_c">”ò‘é‰ü</OPTION>
+<OPTION value="Jun-you_c">”¹‘é‰ü</OPTION>
+<OPTION value="Shouhou_c">Ë–P‰ü</OPTION>
+<OPTION value="Zuihou_c">–P‰ü</OPTION>
+<OPTION value="Chitose_3c">çÎq‰ü</OPTION>
+<OPTION value="Chiyoda_3c">ç‘ã“cq‰ü</OPTION>
+<OPTION value="Ryuuhou_c">—´–P‰ü</OPTION>
+<OPTION value="_Dummy_Normal">Ÿ³‹K‹ó•êŸ</OPTION>
+<OPTION value="Akagi">Ôé</OPTION>
+<OPTION value="Kaga">‰Á‰ê</OPTION>
+<OPTION value="Souryuu">‘“—´</OPTION>
+<OPTION value="Hiryuu">”ò—´</OPTION>
+<OPTION value="Shoukaku">ãÄ’ß</OPTION>
+<OPTION value="Zuikaku">’ß</OPTION>
+<OPTION value="Taihou">‘å–P</OPTION>
+<OPTION value="Unryuu">‰_—´</OPTION>
+<OPTION value="Amagi">“Vé</OPTION>
+<OPTION value="Katsuragi">Š‹é</OPTION>
+<OPTION value="GrafZeppelin">Graf Zeppelin</OPTION>
+<OPTION value="_Dummy_Light">ŸŒy‹ó•êŸ</OPTION>
+<OPTION value="Houshou">–PãÄ</OPTION>
+<OPTION value="Ryuujou">—´éˆ</OPTION>
+<OPTION value="Hiyou">”ò‘é</OPTION>
+<OPTION value="Jun-you">”¹‘é</OPTION>
+<OPTION value="Shouhou">Ë–P</OPTION>
+<OPTION value="Zuihou">–P</OPTION>
+<OPTION value="Chitose_3">çÎq</OPTION>
+<OPTION value="Chiyoda_3">ç‘ã“cq</OPTION>
+<OPTION value="Ryuuhou">—´–P</OPTION>
+<OPTION value="_Dummy_Others">Ÿ‚»‚Ì‘¼Ÿ</OPTION>
+<OPTION value="Akitsumaru_c">‚ ‚«‚ÂŠÛ‰ü</OPTION>
+</SELECT>
+</TH>
 </TR>
 <TR>
 <TD><INPUT id="acvalid2_1" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum2_1" type="text" name="acnum2_1" value="0" /></TD><TD width="30px"><SPAN id="actext2_1"></SPAN></TD>
@@ -90,7 +214,69 @@
 
 <TABLE>
 <TR>
-<TH colspan="2">3. <INPUT id="kvalid3" type="checkbox" value="0"/><INPUT id="kname3" type="text" name="kname3" value="" /></TH>
+<TH colspan="2">3. <INPUT id="kvalid3" type="checkbox" value="0"/><INPUT id="kname3" type="text" name="kname3" value="" /><BR />
+<SELECT id="knamelist3" name="knamelist3" onChange="onChange_form1_knamelist('knamelist3')">
+<OPTION value="_erase">=‚È‚µ=</OPTION>
+<OPTION value="_Dummy_Normal_cc">Ÿ³‹K‹ó•êE‰ü“ñŸ</OPTION>
+<OPTION value="Souryuu_cc">‘“—´‰ü“ñ</OPTION>
+<OPTION value="Hiryy_cc">”ò—´‰ü“ñ</OPTION>
+<OPTION value="Shoukaku_cc">ãÄ’ß‰ü“ñ</OPTION>
+<OPTION value="Shoukaku_cc2">ãÄ’ß‰ü“ñb</OPTION>
+<OPTION value="Zuikaku_cc">’ß‰ü“ñ</OPTION>
+<OPTION value="Zuikaku_cc2">’ß‰ü“ñb</OPTION>
+<OPTION value="_Dummy_Normal_c">Ÿ³‹K‹ó•êE‰üŸ</OPTION>
+<OPTION value="Akagi_c">Ôé‰ü</OPTION>
+<OPTION value="Kaga_c">‰Á‰ê‰ü</OPTION>
+<OPTION value="Souryuu_c">‘“—´‰ü</OPTION>
+<OPTION value="Hiryuu_c">”ò—´‰ü</OPTION>
+<OPTION value="Shoukaku_c">ãÄ’ß‰ü</OPTION>
+<OPTION value="Zuikaku_c">’ß‰ü</OPTION>
+<OPTION value="Taihou_c">‘å–P‰ü</OPTION>
+<OPTION value="Unryuu_c">‰_—´‰ü</OPTION>
+<OPTION value="Amagi_c">“Vé‰ü</OPTION>
+<OPTION value="Katsuragi_c">Š‹é‰ü</OPTION>
+<OPTION value="GrafZeppelin_c">Graf Zeppelin‰ü</OPTION>
+<OPTION value="_Dummy_Light_cc">ŸŒy‹ó•êE‰ü“ñŸ</OPTION>
+<OPTION value="Ryuujou_cc">—´éˆ‰ü“ñ</OPTION>
+<OPTION value="Jun-you_cc">”¹‘é‰ü“ñ</OPTION>
+<OPTION value="Chitose_3cc">çÎq‰ü“ñ</OPTION>
+<OPTION value="Chiyoda_3cc">ç‘ã“cq‰ü“ñ</OPTION>
+<OPTION value="_Dummy_Light_c">ŸŒy‹ó•êE‰üŸ</OPTION>
+<OPTION value="Houshou_c">–PãÄ‰ü</OPTION>
+<OPTION value="Ryuujou_c">—´éˆ‰ü</OPTION>
+<OPTION value="Hiyou_c">”ò‘é‰ü</OPTION>
+<OPTION value="Jun-you_c">”¹‘é‰ü</OPTION>
+<OPTION value="Shouhou_c">Ë–P‰ü</OPTION>
+<OPTION value="Zuihou_c">–P‰ü</OPTION>
+<OPTION value="Chitose_3c">çÎq‰ü</OPTION>
+<OPTION value="Chiyoda_3c">ç‘ã“cq‰ü</OPTION>
+<OPTION value="Ryuuhou_c">—´–P‰ü</OPTION>
+<OPTION value="_Dummy_Normal">Ÿ³‹K‹ó•êŸ</OPTION>
+<OPTION value="Akagi">Ôé</OPTION>
+<OPTION value="Kaga">‰Á‰ê</OPTION>
+<OPTION value="Souryuu">‘“—´</OPTION>
+<OPTION value="Hiryuu">”ò—´</OPTION>
+<OPTION value="Shoukaku">ãÄ’ß</OPTION>
+<OPTION value="Zuikaku">’ß</OPTION>
+<OPTION value="Taihou">‘å–P</OPTION>
+<OPTION value="Unryuu">‰_—´</OPTION>
+<OPTION value="Amagi">“Vé</OPTION>
+<OPTION value="Katsuragi">Š‹é</OPTION>
+<OPTION value="GrafZeppelin">Graf Zeppelin</OPTION>
+<OPTION value="_Dummy_Light">ŸŒy‹ó•êŸ</OPTION>
+<OPTION value="Houshou">–PãÄ</OPTION>
+<OPTION value="Ryuujou">—´éˆ</OPTION>
+<OPTION value="Hiyou">”ò‘é</OPTION>
+<OPTION value="Jun-you">”¹‘é</OPTION>
+<OPTION value="Shouhou">Ë–P</OPTION>
+<OPTION value="Zuihou">–P</OPTION>
+<OPTION value="Chitose_3">çÎq</OPTION>
+<OPTION value="Chiyoda_3">ç‘ã“cq</OPTION>
+<OPTION value="Ryuuhou">—´–P</OPTION>
+<OPTION value="_Dummy_Others">Ÿ‚»‚Ì‘¼Ÿ</OPTION>
+<OPTION value="Akitsumaru_c">‚ ‚«‚ÂŠÛ‰ü</OPTION>
+</SELECT>
+</TH>
 </TR>
 <TR>
 <TD><INPUT id="acvalid3_1" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum3_1" type="text" name="acnum3_1" value="0" /></TD><TD width="30px"><SPAN id="actext3_1"></SPAN></TD>
@@ -119,7 +305,69 @@
 
 <TABLE>
 <TR>
-<TH colspan="2">4. <INPUT id="kvalid4" type="checkbox" value="0"/><INPUT id="kname4" type="text" name="kname4" value="" /></TH>
+<TH colspan="2">4. <INPUT id="kvalid4" type="checkbox" value="0"/><INPUT id="kname4" type="text" name="kname4" value="" /><BR />
+<SELECT id="knamelist4" name="knamelist4" onChange="onChange_form1_knamelist('knamelist4')">
+<OPTION value="_erase">=‚È‚µ=</OPTION>
+<OPTION value="_Dummy_Normal_cc">Ÿ³‹K‹ó•êE‰ü“ñŸ</OPTION>
+<OPTION value="Souryuu_cc">‘“—´‰ü“ñ</OPTION>
+<OPTION value="Hiryy_cc">”ò—´‰ü“ñ</OPTION>
+<OPTION value="Shoukaku_cc">ãÄ’ß‰ü“ñ</OPTION>
+<OPTION value="Shoukaku_cc2">ãÄ’ß‰ü“ñb</OPTION>
+<OPTION value="Zuikaku_cc">’ß‰ü“ñ</OPTION>
+<OPTION value="Zuikaku_cc2">’ß‰ü“ñb</OPTION>
+<OPTION value="_Dummy_Normal_c">Ÿ³‹K‹ó•êE‰üŸ</OPTION>
+<OPTION value="Akagi_c">Ôé‰ü</OPTION>
+<OPTION value="Kaga_c">‰Á‰ê‰ü</OPTION>
+<OPTION value="Souryuu_c">‘“—´‰ü</OPTION>
+<OPTION value="Hiryuu_c">”ò—´‰ü</OPTION>
+<OPTION value="Shoukaku_c">ãÄ’ß‰ü</OPTION>
+<OPTION value="Zuikaku_c">’ß‰ü</OPTION>
+<OPTION value="Taihou_c">‘å–P‰ü</OPTION>
+<OPTION value="Unryuu_c">‰_—´‰ü</OPTION>
+<OPTION value="Amagi_c">“Vé‰ü</OPTION>
+<OPTION value="Katsuragi_c">Š‹é‰ü</OPTION>
+<OPTION value="GrafZeppelin_c">Graf Zeppelin‰ü</OPTION>
+<OPTION value="_Dummy_Light_cc">ŸŒy‹ó•êE‰ü“ñŸ</OPTION>
+<OPTION value="Ryuujou_cc">—´éˆ‰ü“ñ</OPTION>
+<OPTION value="Jun-you_cc">”¹‘é‰ü“ñ</OPTION>
+<OPTION value="Chitose_3cc">çÎq‰ü“ñ</OPTION>
+<OPTION value="Chiyoda_3cc">ç‘ã“cq‰ü“ñ</OPTION>
+<OPTION value="_Dummy_Light_c">ŸŒy‹ó•êE‰üŸ</OPTION>
+<OPTION value="Houshou_c">–PãÄ‰ü</OPTION>
+<OPTION value="Ryuujou_c">—´éˆ‰ü</OPTION>
+<OPTION value="Hiyou_c">”ò‘é‰ü</OPTION>
+<OPTION value="Jun-you_c">”¹‘é‰ü</OPTION>
+<OPTION value="Shouhou_c">Ë–P‰ü</OPTION>
+<OPTION value="Zuihou_c">–P‰ü</OPTION>
+<OPTION value="Chitose_3c">çÎq‰ü</OPTION>
+<OPTION value="Chiyoda_3c">ç‘ã“cq‰ü</OPTION>
+<OPTION value="Ryuuhou_c">—´–P‰ü</OPTION>
+<OPTION value="_Dummy_Normal">Ÿ³‹K‹ó•êŸ</OPTION>
+<OPTION value="Akagi">Ôé</OPTION>
+<OPTION value="Kaga">‰Á‰ê</OPTION>
+<OPTION value="Souryuu">‘“—´</OPTION>
+<OPTION value="Hiryuu">”ò—´</OPTION>
+<OPTION value="Shoukaku">ãÄ’ß</OPTION>
+<OPTION value="Zuikaku">’ß</OPTION>
+<OPTION value="Taihou">‘å–P</OPTION>
+<OPTION value="Unryuu">‰_—´</OPTION>
+<OPTION value="Amagi">“Vé</OPTION>
+<OPTION value="Katsuragi">Š‹é</OPTION>
+<OPTION value="GrafZeppelin">Graf Zeppelin</OPTION>
+<OPTION value="_Dummy_Light">ŸŒy‹ó•êŸ</OPTION>
+<OPTION value="Houshou">–PãÄ</OPTION>
+<OPTION value="Ryuujou">—´éˆ</OPTION>
+<OPTION value="Hiyou">”ò‘é</OPTION>
+<OPTION value="Jun-you">”¹‘é</OPTION>
+<OPTION value="Shouhou">Ë–P</OPTION>
+<OPTION value="Zuihou">–P</OPTION>
+<OPTION value="Chitose_3">çÎq</OPTION>
+<OPTION value="Chiyoda_3">ç‘ã“cq</OPTION>
+<OPTION value="Ryuuhou">—´–P</OPTION>
+<OPTION value="_Dummy_Others">Ÿ‚»‚Ì‘¼Ÿ</OPTION>
+<OPTION value="Akitsumaru_c">‚ ‚«‚ÂŠÛ‰ü</OPTION>
+</SELECT>
+</TH>
 </TR>
 <TR>
 <TD><INPUT id="acvalid4_1" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum4_1" type="text" name="acnum4_1" value="0" /></TD><TD width="30px"><SPAN id="actext4_1"></SPAN></TD>
@@ -145,7 +393,69 @@
 
 <TABLE>
 <TR>
-<TH colspan="2">5. <INPUT id="kvalid5" type="checkbox" value="0"/><INPUT id="kname5" type="text" name="kname5" value="" /></TH>
+<TH colspan="2">5. <INPUT id="kvalid5" type="checkbox" value="0"/><INPUT id="kname5" type="text" name="kname5" value="" /><BR />
+<SELECT id="knamelist5" name="knamelist5" onChange="onChange_form1_knamelist('knamelist5')">
+<OPTION value="_erase">=‚È‚µ=</OPTION>
+<OPTION value="_Dummy_Normal_cc">Ÿ³‹K‹ó•êE‰ü“ñŸ</OPTION>
+<OPTION value="Souryuu_cc">‘“—´‰ü“ñ</OPTION>
+<OPTION value="Hiryy_cc">”ò—´‰ü“ñ</OPTION>
+<OPTION value="Shoukaku_cc">ãÄ’ß‰ü“ñ</OPTION>
+<OPTION value="Shoukaku_cc2">ãÄ’ß‰ü“ñb</OPTION>
+<OPTION value="Zuikaku_cc">’ß‰ü“ñ</OPTION>
+<OPTION value="Zuikaku_cc2">’ß‰ü“ñb</OPTION>
+<OPTION value="_Dummy_Normal_c">Ÿ³‹K‹ó•êE‰üŸ</OPTION>
+<OPTION value="Akagi_c">Ôé‰ü</OPTION>
+<OPTION value="Kaga_c">‰Á‰ê‰ü</OPTION>
+<OPTION value="Souryuu_c">‘“—´‰ü</OPTION>
+<OPTION value="Hiryuu_c">”ò—´‰ü</OPTION>
+<OPTION value="Shoukaku_c">ãÄ’ß‰ü</OPTION>
+<OPTION value="Zuikaku_c">’ß‰ü</OPTION>
+<OPTION value="Taihou_c">‘å–P‰ü</OPTION>
+<OPTION value="Unryuu_c">‰_—´‰ü</OPTION>
+<OPTION value="Amagi_c">“Vé‰ü</OPTION>
+<OPTION value="Katsuragi_c">Š‹é‰ü</OPTION>
+<OPTION value="GrafZeppelin_c">Graf Zeppelin‰ü</OPTION>
+<OPTION value="_Dummy_Light_cc">ŸŒy‹ó•êE‰ü“ñŸ</OPTION>
+<OPTION value="Ryuujou_cc">—´éˆ‰ü“ñ</OPTION>
+<OPTION value="Jun-you_cc">”¹‘é‰ü“ñ</OPTION>
+<OPTION value="Chitose_3cc">çÎq‰ü“ñ</OPTION>
+<OPTION value="Chiyoda_3cc">ç‘ã“cq‰ü“ñ</OPTION>
+<OPTION value="_Dummy_Light_c">ŸŒy‹ó•êE‰üŸ</OPTION>
+<OPTION value="Houshou_c">–PãÄ‰ü</OPTION>
+<OPTION value="Ryuujou_c">—´éˆ‰ü</OPTION>
+<OPTION value="Hiyou_c">”ò‘é‰ü</OPTION>
+<OPTION value="Jun-you_c">”¹‘é‰ü</OPTION>
+<OPTION value="Shouhou_c">Ë–P‰ü</OPTION>
+<OPTION value="Zuihou_c">–P‰ü</OPTION>
+<OPTION value="Chitose_3c">çÎq‰ü</OPTION>
+<OPTION value="Chiyoda_3c">ç‘ã“cq‰ü</OPTION>
+<OPTION value="Ryuuhou_c">—´–P‰ü</OPTION>
+<OPTION value="_Dummy_Normal">Ÿ³‹K‹ó•êŸ</OPTION>
+<OPTION value="Akagi">Ôé</OPTION>
+<OPTION value="Kaga">‰Á‰ê</OPTION>
+<OPTION value="Souryuu">‘“—´</OPTION>
+<OPTION value="Hiryuu">”ò—´</OPTION>
+<OPTION value="Shoukaku">ãÄ’ß</OPTION>
+<OPTION value="Zuikaku">’ß</OPTION>
+<OPTION value="Taihou">‘å–P</OPTION>
+<OPTION value="Unryuu">‰_—´</OPTION>
+<OPTION value="Amagi">“Vé</OPTION>
+<OPTION value="Katsuragi">Š‹é</OPTION>
+<OPTION value="GrafZeppelin">Graf Zeppelin</OPTION>
+<OPTION value="_Dummy_Light">ŸŒy‹ó•êŸ</OPTION>
+<OPTION value="Houshou">–PãÄ</OPTION>
+<OPTION value="Ryuujou">—´éˆ</OPTION>
+<OPTION value="Hiyou">”ò‘é</OPTION>
+<OPTION value="Jun-you">”¹‘é</OPTION>
+<OPTION value="Shouhou">Ë–P</OPTION>
+<OPTION value="Zuihou">–P</OPTION>
+<OPTION value="Chitose_3">çÎq</OPTION>
+<OPTION value="Chiyoda_3">ç‘ã“cq</OPTION>
+<OPTION value="Ryuuhou">—´–P</OPTION>
+<OPTION value="_Dummy_Others">Ÿ‚»‚Ì‘¼Ÿ</OPTION>
+<OPTION value="Akitsumaru_c">‚ ‚«‚ÂŠÛ‰ü</OPTION>
+</SELECT>
+</TH>
 </TR>
 <TR>
 <TD><INPUT id="acvalid5_1" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum5_1" type="text" name="acnum5_1" value="0" /></TD><TD width="30px"><SPAN id="actext5_1"></SPAN></TD>
@@ -171,7 +481,69 @@
 
 <TABLE>
 <TR>
-<TH colspan="2">6. <INPUT id="kvalid6" type="checkbox" value="0"/><INPUT id="kname6" type="text" name="kname6" value="" /></TH>
+<TH colspan="2">6. <INPUT id="kvalid6" type="checkbox" value="0"/><INPUT id="kname6" type="text" name="kname6" value="" /><BR />
+<SELECT id="knamelist6" name="knamelist6" onChange="onChange_form1_knamelist('knamelist6')">
+<OPTION value="_erase">=‚È‚µ=</OPTION>
+<OPTION value="_Dummy_Normal_cc">Ÿ³‹K‹ó•êE‰ü“ñŸ</OPTION>
+<OPTION value="Souryuu_cc">‘“—´‰ü“ñ</OPTION>
+<OPTION value="Hiryy_cc">”ò—´‰ü“ñ</OPTION>
+<OPTION value="Shoukaku_cc">ãÄ’ß‰ü“ñ</OPTION>
+<OPTION value="Shoukaku_cc2">ãÄ’ß‰ü“ñb</OPTION>
+<OPTION value="Zuikaku_cc">’ß‰ü“ñ</OPTION>
+<OPTION value="Zuikaku_cc2">’ß‰ü“ñb</OPTION>
+<OPTION value="_Dummy_Normal_c">Ÿ³‹K‹ó•êE‰üŸ</OPTION>
+<OPTION value="Akagi_c">Ôé‰ü</OPTION>
+<OPTION value="Kaga_c">‰Á‰ê‰ü</OPTION>
+<OPTION value="Souryuu_c">‘“—´‰ü</OPTION>
+<OPTION value="Hiryuu_c">”ò—´‰ü</OPTION>
+<OPTION value="Shoukaku_c">ãÄ’ß‰ü</OPTION>
+<OPTION value="Zuikaku_c">’ß‰ü</OPTION>
+<OPTION value="Taihou_c">‘å–P‰ü</OPTION>
+<OPTION value="Unryuu_c">‰_—´‰ü</OPTION>
+<OPTION value="Amagi_c">“Vé‰ü</OPTION>
+<OPTION value="Katsuragi_c">Š‹é‰ü</OPTION>
+<OPTION value="GrafZeppelin_c">Graf Zeppelin‰ü</OPTION>
+<OPTION value="_Dummy_Light_cc">ŸŒy‹ó•êE‰ü“ñŸ</OPTION>
+<OPTION value="Ryuujou_cc">—´éˆ‰ü“ñ</OPTION>
+<OPTION value="Jun-you_cc">”¹‘é‰ü“ñ</OPTION>
+<OPTION value="Chitose_3cc">çÎq‰ü“ñ</OPTION>
+<OPTION value="Chiyoda_3cc">ç‘ã“cq‰ü“ñ</OPTION>
+<OPTION value="_Dummy_Light_c">ŸŒy‹ó•êE‰üŸ</OPTION>
+<OPTION value="Houshou_c">–PãÄ‰ü</OPTION>
+<OPTION value="Ryuujou_c">—´éˆ‰ü</OPTION>
+<OPTION value="Hiyou_c">”ò‘é‰ü</OPTION>
+<OPTION value="Jun-you_c">”¹‘é‰ü</OPTION>
+<OPTION value="Shouhou_c">Ë–P‰ü</OPTION>
+<OPTION value="Zuihou_c">–P‰ü</OPTION>
+<OPTION value="Chitose_3c">çÎq‰ü</OPTION>
+<OPTION value="Chiyoda_3c">ç‘ã“cq‰ü</OPTION>
+<OPTION value="Ryuuhou_c">—´–P‰ü</OPTION>
+<OPTION value="_Dummy_Normal">Ÿ³‹K‹ó•êŸ</OPTION>
+<OPTION value="Akagi">Ôé</OPTION>
+<OPTION value="Kaga">‰Á‰ê</OPTION>
+<OPTION value="Souryuu">‘“—´</OPTION>
+<OPTION value="Hiryuu">”ò—´</OPTION>
+<OPTION value="Shoukaku">ãÄ’ß</OPTION>
+<OPTION value="Zuikaku">’ß</OPTION>
+<OPTION value="Taihou">‘å–P</OPTION>
+<OPTION value="Unryuu">‰_—´</OPTION>
+<OPTION value="Amagi">“Vé</OPTION>
+<OPTION value="Katsuragi">Š‹é</OPTION>
+<OPTION value="GrafZeppelin">Graf Zeppelin</OPTION>
+<OPTION value="_Dummy_Light">ŸŒy‹ó•êŸ</OPTION>
+<OPTION value="Houshou">–PãÄ</OPTION>
+<OPTION value="Ryuujou">—´éˆ</OPTION>
+<OPTION value="Hiyou">”ò‘é</OPTION>
+<OPTION value="Jun-you">”¹‘é</OPTION>
+<OPTION value="Shouhou">Ë–P</OPTION>
+<OPTION value="Zuihou">–P</OPTION>
+<OPTION value="Chitose_3">çÎq</OPTION>
+<OPTION value="Chiyoda_3">ç‘ã“cq</OPTION>
+<OPTION value="Ryuuhou">—´–P</OPTION>
+<OPTION value="_Dummy_Others">Ÿ‚»‚Ì‘¼Ÿ</OPTION>
+<OPTION value="Akitsumaru_c">‚ ‚«‚ÂŠÛ‰ü</OPTION>
+</SELECT>
+</TH>
 </TR>
 <TR>
 <TD><INPUT id="acvalid6_1" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum6_1" type="text" name="acnum6_1" value="0" /></TD><TD width="30px"><SPAN id="actext6_1"></SPAN></TD>
@@ -212,9 +584,14 @@ status
 </P>
 
 <P>
-Copyright (c) 2015-. suzuryo all rights researved.<BR />
+Copyright (c) 2016-. suzuryo all rights researved.<BR />
 <A href="https://githab.org/elriea2000/reppuu_web/">https://githab.org/elriea2000/reppuu_web/</A>
 </P>
+<!--
+ * §‹ó’lÅ“K‰»ƒvƒƒOƒ‰ƒ€g—ó•—Œ‚Å‚ ‚è‚Ü‚·Ihƒuƒ‰ƒEƒU”Å v0.3
+ * This source and related resources are available under BSD License.
+ * Copyright (c) 2016-, suzuryo All rights reserved.
+-->
 
 </BODY>
 </HTML>
