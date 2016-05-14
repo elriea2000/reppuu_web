@@ -7,7 +7,7 @@
 </HEAD>
 <BODY>
 
-<H1>艦これ制空値最適化ツール“烈風拳であります！”ブラウザ版 v0.3</H1>
+<H1>艦これ制空値最適化ツール“烈風拳であります！”ブラウザ版 v0.4</H1>
 <P>
 <A href="readme.txt" target="new">せつめい</A>
 </P>
@@ -38,7 +38,7 @@
 
 <TABLE>
 <TR>
-<TH colspan="2">1. <INPUT id="kvalid1" type="checkbox" value="0"/><INPUT type="text" id="kname1"name="kname1" value="" /><BR />
+<TH colspan="4">1. <INPUT id="kvalid1" type="checkbox" value="0"/><INPUT type="text" id="kname1"name="kname1" value="" size="28" /><BR />
 <SELECT id="knamelist1" name="knamelist1" onChange="onChange_form1_knamelist('knamelist1')">
 <OPTION value="_erase">=なし=</OPTION>
 <OPTION value="_Dummy_Normal_cc">◆正規空母・改二◆</OPTION>
@@ -103,19 +103,19 @@
 </TH>
 </TR>
 <TR>
-<TD><INPUT id="acvalid1_1" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum1_1" type="text" name="acnum1_1" value="0" /></TD><TD width="30px"><SPAN id="actext1_1"></SPAN></TD>
+<TD><INPUT id="acvalid1_1" type="checkbox" value="1" checked="checked"/></TD><TD><INPUT id="acnum1_1" type="text" name="acnum1_1" value="0" size="2" /></TD><TD id="actext1_1" width="60px"></TD><TD><BUTTON id="acdecdec1_1" onClick="onClick_form1_acdecdec('acdecdec1_1')">&lt;&lt;</BUTTON><BUTTON id="acdec1_1" onClick="onClick_form1_acdec('acdec1_1')">&lt;</BUTTON><BUTTON id="acinc1_1" onClick="onClick_form1_acinc('acinc1_1')">&gt;</BUTTON><BUTTON id="acincinc1_1" onClick="onClick_form1_acincinc('acincinc1_1')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid1_2" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum1_2" type="text" name="acnum1_2" value="0" /></TD><TD width="30px"><SPAN id="actext1_2"></SPAN></TD>
+<TD><INPUT id="acvalid1_2" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum1_2" type="text" name="acnum1_2" value="0" size="2" /></TD><TD id="actext1_2" width="60px"></TD><TD><BUTTON id="acdecdec1_2" onClick="onClick_form1_acdecdec('acdecdec1_2')">&lt;&lt;</BUTTON><BUTTON id="acdec1_2" onClick="onClick_form1_acdec('acdec1_2')">&lt;</BUTTON><BUTTON id="acinc1_2" onClick="onClick_form1_acinc('acinc1_2')">&gt;</BUTTON><BUTTON id="acincinc1_2" onClick="onClick_form1_acincinc('acincinc1_2')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid1_3" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum1_3" type="text" name="acnum1_3" value="0" /></TD><TD width="30px"><SPAN id="actext1_3"></SPAN></TD>
+<TD><INPUT id="acvalid1_3" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum1_3" type="text" name="acnum1_3" value="0" size="2" /></TD><TD id="actext1_3" width="60px"></TD><TD><BUTTON id="acdecdec1_3" onClick="onClick_form1_acdecdec('acdecdec1_3')">&lt;&lt;</BUTTON><BUTTON id="acdec1_3" onClick="onClick_form1_acdec('acdec1_3')">&lt;</BUTTON><BUTTON id="acinc1_3" onClick="onClick_form1_acinc('acinc1_3')">&gt;</BUTTON><BUTTON id="acincinc1_3" onClick="onClick_form1_acincinc('acincinc1_3')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid1_4" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum1_4" type="text" name="acnum1_4" value="0" /></TD><TD width="30px"><SPAN id="actext1_4"></SPAN></TD>
+<TD><INPUT id="acvalid1_4" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum1_4" type="text" name="acnum1_4" value="0" size="2" /></TD><TD id="actext1_4" width="60px"></TD><TD><BUTTON id="acdecdec1_4" onClick="onClick_form1_acdecdec('acdecdec1_4')">&lt;&lt;</BUTTON><BUTTON id="acdec1_4" onClick="onClick_form1_acdec('acdec1_4')">&lt;</BUTTON><BUTTON id="acinc1_4" onClick="onClick_form1_acinc('acinc1_4')">&gt;</BUTTON><BUTTON id="acincinc1_4" onClick="onClick_form1_acincinc('acincinc1_4')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD colspan="2">
+<TD colspan="4">
 <BUTTON id="acencode1" name="acencode1" onClick="onClick_form1_acencode('acencode1')">encode</BUTTON><BUTTON id="acdecode1" name="acdecode1" onClick="onClick_form1_acdecode('acddeode1')">decode</BUTTON><BR /><INPUT id="accode1" type="text" name="accode1" value="" />
 </TD>
 </TR>
@@ -126,7 +126,7 @@
 
 <TABLE>
 <TR>
-<TH colspan="2">2. <INPUT id="kvalid2" type="checkbox" value="0"/><INPUT id="kname2" type="text" name="kname2" value="" /><BR />
+<TH colspan="4">2. <INPUT id="kvalid2" type="checkbox" value="0"/><INPUT id="kname2" type="text" name="kname2" value="" size="28" /><BR />
 <SELECT id="knamelist2" name="knamelist2" onChange="onChange_form1_knamelist('knamelist2')">
 <OPTION value="_erase">=なし=</OPTION>
 <OPTION value="_Dummy_Normal_cc">◆正規空母・改二◆</OPTION>
@@ -191,19 +191,19 @@
 </TH>
 </TR>
 <TR>
-<TD><INPUT id="acvalid2_1" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum2_1" type="text" name="acnum2_1" value="0" /></TD><TD width="30px"><SPAN id="actext2_1"></SPAN></TD>
+<TD><INPUT id="acvalid2_1" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum2_1" type="text" name="acnum2_1" value="0" size="2" /></TD><TD id="actext2_1" width="60px"></TD><TD><BUTTON id="acdecdec2_1" onClick="onClick_form1_acdecdec('acdecdec2_1')">&lt;&lt;</BUTTON><BUTTON id="acdec2_1" onClick="onClick_form1_acdec('acdec2_1')">&lt;</BUTTON><BUTTON id="acinc2_1" onClick="onClick_form1_acinc('acinc2_1')">&gt;</BUTTON><BUTTON id="acincinc2_1" onClick="onClick_form1_acincinc('acincinc2_1')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid2_2" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum2_2" type="text" name="acnum2_2" value="0" /></TD><TD width="30px"><SPAN id="actext2_2"></SPAN></TD>
+<TD><INPUT id="acvalid2_2" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum2_2" type="text" name="acnum2_2" value="0" size="2" /></TD><TD id="actext2_2" width="60px"></TD><TD><BUTTON id="acdecdec2_2" onClick="onClick_form1_acdecdec('acdecdec2_2')">&lt;&lt;</BUTTON><BUTTON id="acdec2_2" onClick="onClick_form1_acdec('acdec2_2')">&lt;</BUTTON><BUTTON id="acinc2_2" onClick="onClick_form1_acinc('acinc2_2')">&gt;</BUTTON><BUTTON id="acincinc2_2" onClick="onClick_form1_acincinc('acincinc2_2')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid2_3" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum2_3" type="text" name="acnum2_3" value="0" /></TD><TD width="30px"><SPAN id="actext2_3"></SPAN></TD>
+<TD><INPUT id="acvalid2_3" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum2_3" type="text" name="acnum2_3" value="0" size="2" /></TD><TD id="actext2_3" width="60px"></TD><TD><BUTTON id="acdecdec2_3" onClick="onClick_form1_acdecdec('acdecdec2_3')">&lt;&lt;</BUTTON><BUTTON id="acdec2_3" onClick="onClick_form1_acdec('acdec2_3')">&lt;</BUTTON><BUTTON id="acinc2_3" onClick="onClick_form1_acinc('acinc2_3')">&gt;</BUTTON><BUTTON id="acincinc2_3" onClick="onClick_form1_acincinc('acincinc2_3')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid2_4" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum2_4" type="text" name="acnum2_4" value="0" /></TD><TD width="30px"><SPAN id="actext2_4"></SPAN></TD>
+<TD><INPUT id="acvalid2_4" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum2_4" type="text" name="acnum2_4" value="0" size="2" /></TD><TD id="actext2_4" width="60px"></TD><TD><BUTTON id="acdecdec2_4" onClick="onClick_form1_acdecdec('acdecdec2_4')">&lt;&lt;</BUTTON><BUTTON id="acdec2_4" onClick="onClick_form1_acdec('acdec2_4')">&lt;</BUTTON><BUTTON id="acinc2_4" onClick="onClick_form1_acinc('acinc2_4')">&gt;</BUTTON><BUTTON id="acincinc2_4" onClick="onClick_form1_acincinc('acincinc2_4')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD colspan="2">
+<TD colspan="4">
 <BUTTON id="acencode2" name="acencode2" onClick="onClick_form1_acencode('acencode2')">encode</BUTTON><BUTTON id="acdecode2" name="acdecode2" onClick="onClick_form1_acdecode('acdecode2')">decode</BUTTON><BR /><INPUT id="accode2" type="text" name="accode2" value="" />
 </TD>
 </TR>
@@ -214,7 +214,7 @@
 
 <TABLE>
 <TR>
-<TH colspan="2">3. <INPUT id="kvalid3" type="checkbox" value="0"/><INPUT id="kname3" type="text" name="kname3" value="" /><BR />
+<TH colspan="4">3. <INPUT id="kvalid3" type="checkbox" value="0"/><INPUT id="kname3" type="text" name="kname3" value="" size="28" /><BR />
 <SELECT id="knamelist3" name="knamelist3" onChange="onChange_form1_knamelist('knamelist3')">
 <OPTION value="_erase">=なし=</OPTION>
 <OPTION value="_Dummy_Normal_cc">◆正規空母・改二◆</OPTION>
@@ -279,19 +279,19 @@
 </TH>
 </TR>
 <TR>
-<TD><INPUT id="acvalid3_1" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum3_1" type="text" name="acnum3_1" value="0" /></TD><TD width="30px"><SPAN id="actext3_1"></SPAN></TD>
+<TD><INPUT id="acvalid3_1" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum3_1" type="text" name="acnum3_1" value="0" size="2" /></TD><TD id="actext3_1" width="60px"></TD><TD><BUTTON id="acdecdec3_1" onClick="onClick_form1_acdecdec('acdecdec3_1')">&lt;&lt;</BUTTON><BUTTON id="acdec3_1" onClick="onClick_form1_acdec('acdec3_1')">&lt;</BUTTON><BUTTON id="acinc3_1" onClick="onClick_form1_acinc('acinc3_1')">&gt;</BUTTON><BUTTON id="acincinc3_1" onClick="onClick_form1_acincinc('acincinc3_1')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid3_2" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum3_2" type="text" name="acnum3_2" value="0" /></TD><TD width="30px"><SPAN id="actext3_2"></SPAN></TD>
+<TD><INPUT id="acvalid3_2" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum3_2" type="text" name="acnum3_2" value="0" size="2" /></TD><TD id="actext3_2" width="60px"></TD><TD><BUTTON id="acdecdec3_2" onClick="onClick_form1_acdecdec('acdecdec3_2')">&lt;&lt;</BUTTON><BUTTON id="acdec3_2" onClick="onClick_form1_acdec('acdec3_2')">&lt;</BUTTON><BUTTON id="acinc3_2" onClick="onClick_form1_acinc('acinc3_2')">&gt;</BUTTON><BUTTON id="acincinc3_2" onClick="onClick_form1_acincinc('acincinc3_2')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid3_3" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum3_3" type="text" name="acnum3_3" value="0" /></TD><TD width="30px"><SPAN id="actext3_3"></SPAN></TD>
+<TD><INPUT id="acvalid3_3" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum3_3" type="text" name="acnum3_3" value="0" size="2" /></TD><TD id="actext3_3" width="60px"></TD><TD><BUTTON id="acdecdec3_3" onClick="onClick_form1_acdecdec('acdecdec3_3')">&lt;&lt;</BUTTON><BUTTON id="acdec3_3" onClick="onClick_form1_acdec('acdec3_3')">&lt;</BUTTON><BUTTON id="acinc3_3" onClick="onClick_form1_acinc('acinc3_3')">&gt;</BUTTON><BUTTON id="acincinc3_3" onClick="onClick_form1_acincinc('acincinc3_3')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid3_4" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum3_4" type="text" name="acnum3_4" value="0" /></TD><TD width="30px"><SPAN id="actext3_4"></SPAN></TD>
+<TD><INPUT id="acvalid3_4" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum3_4" type="text" name="acnum3_4" value="0" size="2" /></TD><TD id="actext3_4" width="60px"></TD><TD><BUTTON id="acdecdec3_4" onClick="onClick_form1_acdecdec('acdecdec3_4')">&lt;&lt;</BUTTON><BUTTON id="acdec3_4" onClick="onClick_form1_acdec('acdec3_4')">&lt;</BUTTON><BUTTON id="acinc3_4" onClick="onClick_form1_acinc('acinc3_4')">&gt;</BUTTON><BUTTON id="acincinc3_4" onClick="onClick_form1_acincinc('acincinc3_4')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD colspan="2">
+<TD colspan="4">
 <BUTTON id="acencode3" name="acencode3" onClick="onClick_form1_acencode('acencode3')">encode</BUTTON><BUTTON id="acdecode3" name="acdecode3" onClick="onClick_form1_acdecode('acdecode3')">decode</BUTTON><BR /><INPUT id="accode3" type="text" name="accode3" value="" />
 </TD>
 </TR>
@@ -305,7 +305,7 @@
 
 <TABLE>
 <TR>
-<TH colspan="2">4. <INPUT id="kvalid4" type="checkbox" value="0"/><INPUT id="kname4" type="text" name="kname4" value="" /><BR />
+<TH colspan="4">4. <INPUT id="kvalid4" type="checkbox" value="0"/><INPUT id="kname4" type="text" name="kname4" value="" size="28" /><BR />
 <SELECT id="knamelist4" name="knamelist4" onChange="onChange_form1_knamelist('knamelist4')">
 <OPTION value="_erase">=なし=</OPTION>
 <OPTION value="_Dummy_Normal_cc">◆正規空母・改二◆</OPTION>
@@ -370,19 +370,19 @@
 </TH>
 </TR>
 <TR>
-<TD><INPUT id="acvalid4_1" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum4_1" type="text" name="acnum4_1" value="0" /></TD><TD width="30px"><SPAN id="actext4_1"></SPAN></TD>
+<TD><INPUT id="acvalid4_1" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum4_1" type="text" name="acnum4_1" value="0" size="2" /></TD><TD id="actext4_1" width="60px"></TD><TD><BUTTON id="acdecdec4_1" onClick="onClick_form1_acdecdec('acdecdec4_1')">&lt;&lt;</BUTTON><BUTTON id="acdec4_1" onClick="onClick_form1_acdec('acdec4_1')">&lt;</BUTTON><BUTTON id="acinc4_1" onClick="onClick_form1_acinc('acinc4_1')">&gt;</BUTTON><BUTTON id="acincinc4_1" onClick="onClick_form1_acincinc('acincinc4_1')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid4_2" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum4_2" type="text" name="acnum4_2" value="0" /></TD><TD width="30px"><SPAN id="actext4_2"></SPAN></TD>
+<TD><INPUT id="acvalid4_2" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum4_2" type="text" name="acnum4_2" value="0" size="2" /></TD><TD id="actext4_2" width="60px"></TD><TD><BUTTON id="acdecdec4_2" onClick="onClick_form1_acdecdec('acdecdec4_2')">&lt;&lt;</BUTTON><BUTTON id="acdec4_2" onClick="onClick_form1_acdec('acdec4_2')">&lt;</BUTTON><BUTTON id="acinc4_2" onClick="onClick_form1_acinc('acinc4_2')">&gt;</BUTTON><BUTTON id="acincinc4_2" onClick="onClick_form1_acincinc('acincinc4_2')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid4_3" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum4_3" type="text" name="acnum4_3" value="0" /></TD><TD width="30px"><SPAN id="actext4_3"></SPAN></TD>
+<TD><INPUT id="acvalid4_3" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum4_3" type="text" name="acnum4_3" value="0" size="2" /></TD><TD id="actext4_3" width="60px"></TD><TD><BUTTON id="acdecdec4_3" onClick="onClick_form1_acdecdec('acdecdec4_3')">&lt;&lt;</BUTTON><BUTTON id="acdec4_3" onClick="onClick_form1_acdec('acdec4_3')">&lt;</BUTTON><BUTTON id="acinc4_3" onClick="onClick_form1_acinc('acinc4_3')">&gt;</BUTTON><BUTTON id="acincinc4_3" onClick="onClick_form1_acincinc('acincinc4_3')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid4_4" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum4_4" type="text" name="acnum4_4" value="0" /></TD><TD width="30px"><SPAN id="actext4_4"></SPAN></TD>
+<TD><INPUT id="acvalid4_4" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum4_4" type="text" name="acnum4_4" value="0" size="2" /></TD><TD id="actext4_4" width="60px"></TD><TD><BUTTON id="acdecdec4_4" onClick="onClick_form1_acdecdec('acdecdec4_4')">&lt;&lt;</BUTTON><BUTTON id="acdec4_4" onClick="onClick_form1_acdec('acdec4_4')">&lt;</BUTTON><BUTTON id="acinc4_4" onClick="onClick_form1_acinc('acinc4_4')">&gt;</BUTTON><BUTTON id="acincinc4_4" onClick="onClick_form1_acincinc('acincinc4_4')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD colspan="2">
+<TD colspan="4">
 <BUTTON id="acencode4" name="acencode4" onClick="onClick_form1_acencode('acencode4')">encode</BUTTON><BUTTON id="acdecode4" name="acdecode4" onClick="onClick_form1_acdecode('acdecode4')">decode</BUTTON><BR /><INPUT id="accode4" type="text" name="accode4" value="" />
 </TD>
 </TR>
@@ -393,7 +393,7 @@
 
 <TABLE>
 <TR>
-<TH colspan="2">5. <INPUT id="kvalid5" type="checkbox" value="0"/><INPUT id="kname5" type="text" name="kname5" value="" /><BR />
+<TH colspan="4">5. <INPUT id="kvalid5" type="checkbox" value="0"/><INPUT id="kname5" type="text" name="kname5" value="" size="28" /><BR />
 <SELECT id="knamelist5" name="knamelist5" onChange="onChange_form1_knamelist('knamelist5')">
 <OPTION value="_erase">=なし=</OPTION>
 <OPTION value="_Dummy_Normal_cc">◆正規空母・改二◆</OPTION>
@@ -458,19 +458,19 @@
 </TH>
 </TR>
 <TR>
-<TD><INPUT id="acvalid5_1" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum5_1" type="text" name="acnum5_1" value="0" /></TD><TD width="30px"><SPAN id="actext5_1"></SPAN></TD>
+<TD><INPUT id="acvalid5_1" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum5_1" type="text" name="acnum5_1" value="0" size="2" /></TD><TD id="actext5_1" width="60px"></TD><TD><BUTTON id="acdecdec5_1" onClick="onClick_form1_acdecdec('acdecdec5_1')">&lt;&lt;</BUTTON><BUTTON id="acdec5_1" onClick="onClick_form1_acdec('acdec5_1')">&lt;</BUTTON><BUTTON id="acinc5_1" onClick="onClick_form1_acinc('acinc5_1')">&gt;</BUTTON><BUTTON id="acincinc5_1" onClick="onClick_form1_acincinc('acincinc5_1')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid5_2" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum5_2" type="text" name="acnum5_2" value="0" /></TD><TD width="30px"><SPAN id="actext5_2"></SPAN></TD>
+<TD><INPUT id="acvalid5_2" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum5_2" type="text" name="acnum5_2" value="0" size="2" /></TD><TD id="actext5_2" width="60px"></TD><TD><BUTTON id="acdecdec5_2" onClick="onClick_form1_acdecdec('acdecdec5_2')">&lt;&lt;</BUTTON><BUTTON id="acdec5_2" onClick="onClick_form1_acdec('acdec5_2')">&lt;</BUTTON><BUTTON id="acinc5_2" onClick="onClick_form1_acinc('acinc5_2')">&gt;</BUTTON><BUTTON id="acincinc5_2" onClick="onClick_form1_acincinc('acincinc5_2')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid5_3" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum5_3" type="text" name="acnum5_3" value="0" /></TD><TD width="30px"><SPAN id="actext5_3"></SPAN></TD>
+<TD><INPUT id="acvalid5_3" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum5_3" type="text" name="acnum5_3" value="0" size="2" /></TD><TD id="actext5_3" width="60px"></TD><TD><BUTTON id="acdecdec5_3" onClick="onClick_form1_acdecdec('acdecdec5_3')">&lt;&lt;</BUTTON><BUTTON id="acdec5_3" onClick="onClick_form1_acdec('acdec5_3')">&lt;</BUTTON><BUTTON id="acinc5_3" onClick="onClick_form1_acinc('acinc5_3')">&gt;</BUTTON><BUTTON id="acincinc5_3" onClick="onClick_form1_acincinc('acincinc5_3')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid5_4" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum5_4" type="text" name="acnum5_4" value="0" /></TD><TD width="30px"><SPAN id="actext5_4"></SPAN></TD>
+<TD><INPUT id="acvalid5_4" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum5_4" type="text" name="acnum5_4" value="0" size="2" /></TD><TD id="actext5_4" width="60px"></TD><TD><BUTTON id="acdecdec5_4" onClick="onClick_form1_acdecdec('acdecdec5_4')">&lt;&lt;</BUTTON><BUTTON id="acdec5_4" onClick="onClick_form1_acdec('acdec5_4')">&lt;</BUTTON><BUTTON id="acinc5_4" onClick="onClick_form1_acinc('acinc5_4')">&gt;</BUTTON><BUTTON id="acincinc5_4" onClick="onClick_form1_acincinc('acincinc5_4')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD colspan="2">
+<TD colspan="4">
 <BUTTON id="acencode5" name="acencode5" onClick="onClick_form1_acencode('acencode5')">encode</BUTTON><BUTTON id="acdecode5" name="acdecode5" onClick="onClick_form1_acdecode('acdecode5')">decode</BUTTON><BR /><INPUT id="accode5" type="text" name="accode5" value="" />
 </TD>
 </TR>
@@ -481,7 +481,7 @@
 
 <TABLE>
 <TR>
-<TH colspan="2">6. <INPUT id="kvalid6" type="checkbox" value="0"/><INPUT id="kname6" type="text" name="kname6" value="" /><BR />
+<TH colspan="4">6. <INPUT id="kvalid6" type="checkbox" value="0"/><INPUT id="kname6" type="text" name="kname6" value="" size="28" /><BR />
 <SELECT id="knamelist6" name="knamelist6" onChange="onChange_form1_knamelist('knamelist6')">
 <OPTION value="_erase">=なし=</OPTION>
 <OPTION value="_Dummy_Normal_cc">◆正規空母・改二◆</OPTION>
@@ -546,19 +546,19 @@
 </TH>
 </TR>
 <TR>
-<TD><INPUT id="acvalid6_1" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum6_1" type="text" name="acnum6_1" value="0" /></TD><TD width="30px"><SPAN id="actext6_1"></SPAN></TD>
+<TD><INPUT id="acvalid6_1" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum6_1" type="text" name="acnum6_1" value="0" size="2" /></TD><TD id="actext6_1" width="60px"></TD><TD><BUTTON id="acdecdec6_1" onClick="onClick_form1_acdecdec('acdecdec6_1')">&lt;&lt;</BUTTON><BUTTON id="acdec6_1" onClick="onClick_form1_acdec('acdec6_1')">&lt;</BUTTON><BUTTON id="acinc6_1" onClick="onClick_form1_acinc('acinc6_1')">&gt;</BUTTON><BUTTON id="acincinc6_1" onClick="onClick_form1_acincinc('acincinc6_1')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid6_2" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum6_2" type="text" name="acnum6_2" value="0" /></TD><TD width="30px"><SPAN id="actext6_2"></SPAN></TD>
+<TD><INPUT id="acvalid6_2" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum6_2" type="text" name="acnum6_2" value="0" size="2" /></TD><TD id="actext6_2" width="60px"></TD><TD><BUTTON id="acdecdec6_2" onClick="onClick_form1_acdecdec('acdecdec6_2')">&lt;&lt;</BUTTON><BUTTON id="acdec6_2" onClick="onClick_form1_acdec('acdec6_2')">&lt;</BUTTON><BUTTON id="acinc6_2" onClick="onClick_form1_acinc('acinc6_2')">&gt;</BUTTON><BUTTON id="acincinc6_2" onClick="onClick_form1_acincinc('acincinc6_2')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid6_3" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum6_3" type="text" name="acnum6_3" value="0" /></TD><TD width="30px"><SPAN id="actext6_3"></SPAN></TD>
+<TD><INPUT id="acvalid6_3" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum6_3" type="text" name="acnum6_3" value="0" size="2" /></TD><TD id="actext6_3" width="60px"></TD><TD><BUTTON id="acdecdec6_3" onClick="onClick_form1_acdecdec('acdecdec6_3')">&lt;&lt;</BUTTON><BUTTON id="acdec6_3" onClick="onClick_form1_acdec('acdec6_3')">&lt;</BUTTON><BUTTON id="acinc6_3" onClick="onClick_form1_acinc('acinc6_3')">&gt;</BUTTON><BUTTON id="acincinc6_3" onClick="onClick_form1_acincinc('acincinc6_3')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD><INPUT id="acvalid6_4" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum6_4" type="text" name="acnum6_4" value="0" /></TD><TD width="30px"><SPAN id="actext6_4"></SPAN></TD>
+<TD><INPUT id="acvalid6_4" type="checkbox" value="1" checked="checked" /></TD><TD><INPUT id="acnum6_4" type="text" name="acnum6_4" value="0" size="2" /></TD><TD id="actext6_4" width="60px"></TD><TD><BUTTON id="acdecdec6_4" onClick="onClick_form1_acdecdec('acdecdec6_4')">&lt;&lt;</BUTTON><BUTTON id="acdec6_4" onClick="onClick_form1_acdec('acdec6_4')">&lt;</BUTTON><BUTTON id="acinc6_4" onClick="onClick_form1_acinc('acinc6_4')">&gt;</BUTTON><BUTTON id="acincinc6_4" onClick="onClick_form1_acincinc('acincinc6_4')">&gt;&gt;</BUTTON></TD>
 </TR>
 <TR>
-<TD colspan="2">
+<TD colspan="4">
 <BUTTON id="acencode6" name="acencode6" onClick="onClick_form1_acencode('acencode6')">encode</BUTTON><BUTTON id="acdecode6" name="acdecode6" onClick="onClick_form1_acdecode('acdecode6')">decode</BUTTON><BR /><INPUT id="accode6" type="text" name="accode6" value="" />
 </TD>
 </TR>

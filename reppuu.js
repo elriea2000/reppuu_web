@@ -1,5 +1,5 @@
 /*
- * 制空値最適化プログラム“烈風拳であります！”ブラウザ版 v0.3
+ * 制空値最適化プログラム“烈風拳であります！”ブラウザ版 v0.4
  * This source and related resources are available under BSD License.
  * Copyright (c) 2016-, suzuryo All rights reserved.
  */
@@ -18,6 +18,18 @@ function bitrev(src,n){
 		dst|=src&1;
 	}
 	return dst>>1;
+}
+function calcAcpow(acnum,apow,bonus){
+	return (acnum>0&&apow>0?Math.floor(apow*Math.sqrt(acnum))+bonus:0);
+}
+function calcAllAcpowSum(){
+	var sum=0;
+	for(r=0;r<6;++r){
+		if(!document.getElementById("kvalid"+(r+1)).checked) continue;
+	for(c=0;c<4;++c){
+		sum+=document.getElementById("acvalid"+(r+1)+"_"+(c+1)).checked?calcAcpow(+document.getElementById("acnum"+(r+1)+"_"+(c+1)).value,optimizer.curResAK[c+r*4],optimizer.config.bonus):0;
+	}}
+	return sum;
 }
 
 var KanData=function(name,id,acnum){
@@ -108,6 +120,9 @@ var ResRec=function(state,value){
 	this.calcAnum();
 };
 ResRec.prototype={
+	clone: function(){
+		return new ResRec(this.state,this.anum,this.value);
+	},
 	compareTo: function(dst){
 		if(this.anum==dst.anum && this.value==dst.value) return 0;
 		else if(this.anum<dst.anum  || this.anum==dst.anum && this.value<dst.value) return 1;
@@ -123,13 +138,19 @@ var Optimizer=function(){
 	this.dp=new Array(1<<(4*6));
 	this.list=new BinaryHeap;
 	this.orderedlist=[];
+	this.curRes=new ResRec(0,0,0);
+	this.curResAK=new Array(4*6);
+	for(i=0;i<4*6;++i) this.curResAK[i]=0;
+	this.curListIdx=-1;
 };
 Optimizer.prototype={
 	init: function(){
 		this.config=new Config;
-		this.dp=new Array(1<<(4*6));
+		for(i=0;i<this.dp.length;++i) this.dp[i]=0;
 		this.list=new BinaryHeap;
 		this.orderedlist=[];
+		this.curRes=new ResRec(0,0);
+		for(i=0;i<4*6;++i) this.curResAK[i]=0;
 	},
 	readData: function(){
 		this.config.apow=parseInt(document.getElementById("apow").value,10);
@@ -161,12 +182,12 @@ Optimizer.prototype={
 			this.config.acnum.push(isValid?parseInt(document.getElementById(tstr).value,10):0);
 		}}
 		
-		this.calcAcpow();
+		this.calcAllAcpow();
 	},
 	
-	calcAcpow: function(){
+	calcAllAcpow: function(){
 		for(i=0;i<4*this.config.knum;++i){
-			this.config.acpow[i]=(this.config.acnum[i]>0?Math.floor(this.config.apow*Math.sqrt(this.config.acnum[i]))+25:0);
+			this.config.acpow[i]=calcAcpow(this.config.acnum[i],this.config.apow,this.config.bonus);
 		}
 	},
 
@@ -182,8 +203,8 @@ Optimizer.prototype={
 		else{
 			this.dp[state]=value;
 			var tval=value-Math.floor(this.config.target*this.config.marginrate);
-			if(tval>0){
-				var res=new ResRec(state,tval);
+			if(tval>=0){
+				var res=new ResRec(state,value);
 				this.list.push(res);
 				if(this.list.size()>this.config.listnum) this.list.pop();
 			}
@@ -209,32 +230,49 @@ Optimizer.prototype={
 		str+="target: "+Math.floor(this.config.target*this.config.marginrate)+"<BR />\n";
 		while(!tlist.empty()){
 			var res=tlist.pop();
-			str+=("000000"+bitrev(res.state,4*this.config.knum).toString(16)).slice(-this.config.knum)+" "+bitcount(res.state)+" "+this.dp[res.state]+"<BR />\n";
+			str+=("000000"+bitrev(res.state,4*this.config.knum).toString(16)).slice(-this.config.knum)+" "+bitcount(res.state)+" "+res.value+"<BR />\n";
 			this.orderedlist.push(res);
 		}
 		document.getElementById("status").innerHTML=str;
+
+		this.curListIdx=0;
 	},
 	
 	showNext: function(){
-		if(this.orderedlist.length>0){
+		if(this.curListIdx<this.orderedlist.length){
 			var acsum=0;
-			var res=this.orderedlist.pop(); //後ろから取る
+			var res=this.orderedlist[this.orderedlist.length-this.curListIdx-1]; //後ろから取る
 			//var res=this.orderedlist.shift(); //前から取る
+			this.curRes=res.clone();
+			//this.curRes.state=0;
+			this.curResAK=new Array(c+r*4);
+			for(i=0;i<this.curResAK.length;++i) this.curResAK[i]=0;
 			for(r=0;r<6;++r){
 			for(c=0;c<4;++c){
 				var id="actext"+ (r+1) +"_"+ (c+1);
-				document.getElementById(id).innerHTML=((r in this.config.kvalidListInv)&&(res.state&(1<<(c+this.config.kvalidListInv[r]*4)))!=0?"★":"");
+				if((r in this.config.kvalidListInv)&&(res.state&(1<<(c+this.config.kvalidListInv[r]*4)))!=0){
+					//this.curRes.state|=(1<<(c+r*4));
+					this.curResAK[c+r*4]=10;
+					document.getElementById(id).innerHTML="+10";
+				}
+				else{
+					document.getElementById(id).innerHTML="";
+				}
 			}}
 			
-			document.getElementById("totalacpow").innerHTML="total: "+(res.value+Math.floor(this.config.target*this.config.marginrate))+" | remain: "+this.orderedlist.length;
+			document.getElementById("totalacpow").innerHTML="total: "+res.value+" | anum: "+bitcount(res.state)+" | remain: "+(this.orderedlist.length-this.curListIdx-1);
+			
+			++this.curListIdx;
 		}
 		else{
-			alert("last of the list.");
+			alert("end of the list. Return to start.");
+			this.curListIdx=0;
+			this.showNext();
 		}
 	},
 	
 	clearShow: function(){
-		document.getElementById("totalacpower").innerHTML="";
+		document.getElementById("totalacpow").innerHTML="";
 		document.getElementById("status").innerHTML="";
 	}
 };
@@ -263,7 +301,7 @@ function onChange_form1_knamelist(id){
 		document.getElementById("acnum"+idx+"_4").value="0";
 		document.getElementById("kvalid"+idx).checked=false;
 	}
-	else if(val.slice(6)!="_Dummy"){
+	else if(val.substr(0,6)!="_Dummy"){
 		var kandata=KanDatabase[val];
 		document.getElementById("kname"+idx).value=kandata.name;
 		document.getElementById("acnum"+idx+"_1").value=""+kandata.acnum[0];
@@ -271,6 +309,45 @@ function onChange_form1_knamelist(id){
 		document.getElementById("acnum"+idx+"_3").value=""+kandata.acnum[2];
 		document.getElementById("acnum"+idx+"_4").value=""+kandata.acnum[3];
 		document.getElementById("kvalid"+idx).checked=true;
+	}
+}
+
+function onClick_form1_acinc(id){
+	var kidx=+id.substr(-3,1)-1;
+	var aidx=+id.slice(-1)-1;
+	optimizer.curRes.state|=(1<<(aidx+kidx*4));
+	++optimizer.curResAK[aidx+kidx*4];
+	document.getElementById("actext"+(kidx+1)+"_"+(aidx+1)).innerHTML="+"+optimizer.curResAK[aidx+kidx*4];
+	document.getElementById("totalacpow").innerHTML="total: "+calcAllAcpowSum()+" | anum: "+bitcount(optimizer.curRes.state)+" | remain: "+(optimizer.orderedlist.length-optimizer.curListIdx-1);
+}
+function onClick_form1_acincinc(id){
+	var kidx=+id.substr(-3,1)-1;
+	var aidx=+id.slice(-1)-1;
+	optimizer.curRes.state|=(1<<(aidx+kidx*4));
+	optimizer.curResAK[aidx+kidx*4]+=10;
+	document.getElementById("actext"+(kidx+1)+"_"+(aidx+1)).innerHTML="+"+optimizer.curResAK[aidx+kidx*4];
+	document.getElementById("totalacpow").innerHTML="total: "+calcAllAcpowSum()+" | anum: "+bitcount(optimizer.curRes.state)+" | remain: "+(optimizer.orderedlist.length-optimizer.curListIdx-1);
+}
+function onClick_form1_acdec(id){
+	var kidx=+id.substr(-3,1)-1;
+	var aidx=+id.slice(-1)-1;
+	if(optimizer.curResAK[aidx+kidx*4]>0){
+		--optimizer.curResAK[aidx+kidx*4];
+		if(optimizer.curResAK[aidx+kidx*4]==0) optimizer.curRes.state&=~(1<<(aidx+kidx*4));
+		if(optimizer.curResAK[aidx+kidx*4]<0) optimizer.curResAK[aidx+kidx*4]=0;
+		document.getElementById("actext"+(kidx+1)+"_"+(aidx+1)).innerHTML=(optimizer.curResAK[aidx+kidx*4]>0?("+"+optimizer.curResAK[aidx+kidx*4]):"");
+		document.getElementById("totalacpow").innerHTML="total: "+calcAllAcpowSum()+" | anum: "+bitcount(optimizer.curRes.state)+" | remain: "+(optimizer.orderedlist.length-optimizer.curListIdx-1);
+	}
+}
+function onClick_form1_acdecdec(id){
+	var kidx=+id.substr(-3,1)-1;
+	var aidx=+id.slice(-1)-1;
+	if(optimizer.curResAK[aidx+kidx*4]>0){
+		optimizer.curResAK[aidx+kidx*4]-=10;
+		if(optimizer.curResAK[aidx+kidx*4]<0) optimizer.curResAK[aidx+kidx*4]=0;
+		if(optimizer.curResAK[aidx+kidx*4]==0) optimizer.curRes.state&=~(1<<(aidx+kidx*4));
+		document.getElementById("actext"+(kidx+1)+"_"+(aidx+1)).innerHTML=(optimizer.curResAK[aidx+kidx*4]>0?("+"+optimizer.curResAK[aidx+kidx*4]):"");
+		document.getElementById("totalacpow").innerHTML="total: "+calcAllAcpowSum()+" | anum: "+bitcount(optimizer.curRes.state)+" | remain: "+(optimizer.orderedlist.length-optimizer.curListIdx-1);
 	}
 }
 
