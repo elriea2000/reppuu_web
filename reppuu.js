@@ -1,5 +1,5 @@
 /*
- * 制空値最適化プログラム“烈風拳であります！”ブラウザ版 v0.4
+ * 制空値最適化プログラム“烈風拳であります！”ブラウザ版 v1.0
  * This source and related resources are available under BSD License.
  * Copyright (c) 2016-, suzuryo All rights reserved.
  */
@@ -36,7 +36,7 @@ var KanData=function(name,id,acnum){
 	this.name=name;
 	this.id=id;
 	this.acnum=acnum;
-}
+};
 var KanDatabase={
 	"Akagi" :			new KanData("赤城",	100006,	[18,18,27,10]),
 	"Kaga" :			new KanData("加賀",	100007,	[18,18,45,12]),
@@ -99,29 +99,30 @@ var KanDatabase={
 
 
 var Config=function(){
-	this.knum=3;
-	this.target=182;
-	this.marginrate=1.1;
-	this.maxmargin=2.0;
-	this.apow=10;
-	this.bonus=25;
-	this.listnum=20;
-	this.acpow=[];
-	this.acnum=[];
-	this.kvalidList=[];
-	this.kvalidListInv={};
+	this.knum=3; //int		//有効艦の数
+	this.target=182; //int		//目標制空値
+	this.marginrate=1.1; //float	//マージン
+	this.maxmargin=2.0; //float	//上限マージン
+	this.askinds=4; //int		//機種の種類数
+	this.aspow=[]; //Array		//各機種の制空値
+	this.asnum=[];  //Array	//各機種の所持数
+	this.bonus=25; //int		//熟練度ボーナス
+	this.listnum=20; //int		//結果リスト長
+	this.acnum=[]; //Array		//各スロットの機数（無効だと自動的に0に）
+	this.kvalidList=[]; //Array	//有効艦のリスト
+	this.kvalidListInv={}; //Map	//逆引き
 };
 
 var ResRec=function(state,value){
-	this.state=state;
-	this.anum=0;
-	this.value=value;
+	this.state=state; //Array
+	this.anum=0; //int
+	this.value=value; //int
 	
 	this.calcAnum();
 };
 ResRec.prototype={
 	clone: function(){
-		return new ResRec(this.state,this.anum,this.value);
+		return new ResRec(this.state.concat(),this.value);
 	},
 	compareTo: function(dst){
 		if(this.anum==dst.anum && this.value==dst.value) return 0;
@@ -129,8 +130,13 @@ ResRec.prototype={
 		else return -1;
 	},
 	calcAnum: function(){
-		this.anum=bitcount(this.state);
+		this.anum=bitcount(this.state[0]);
 	}
+};
+
+var AsStat=function(aspow,asnum){
+	this.aspow=aspow;
+	this.asnum=asnum;
 };
 
 var Optimizer=function(){
@@ -153,15 +159,46 @@ Optimizer.prototype={
 		for(i=0;i<4*6;++i) this.curResAK[i]=0;
 	},
 	readData: function(){
-		this.config.apow=parseInt(document.getElementById("apow").value,10);
-		this.config.target=parseInt(document.getElementById("target").value,10);
-		this.config.marginrate=+(document.getElementById("marginrate").value);
-		this.config.maxmargin=+(document.getElementById("maxmargin").value);
-		this.config.listnum=+(document.getElementById("listnum").value);
+		this.config.aspow=[];
+		this.config.asnum=[];
+		var taslist=[];
+		var askinds=1;
+		for(;askinds<=9;++askinds){
+			var col=document.getElementById("aspow_"+askinds);
+			if(col==null) break;
+			var taspow=col.value;
+			var tasnum=document.getElementById("asnum_"+askinds).value;
+			taslist.push(new AsStat(+taspow,+tasnum));
+		}
+		--askinds;
+		this.config.askinds=askinds;
+		//ソートする
+		taslist.sort(function(a,b){
+			if( a.aspow < b.aspow ) return -1;
+			if( a.aspow > b.aspow ) return 1;
+			return 0;
+		});
+		for(i=0;i<taslist.length;++i){
+			this.config.aspow.push(taslist[i].aspow);
+			this.config.asnum.push(taslist[i].asnum);
+		}
+		//戻す
+		for(i=0;i<askinds;++i){
+			document.getElementById("aspow_"+(i+1)).value="+"+this.config.aspow[i];
+			document.getElementById("asnum_"+(i+1)).value=""+this.config.asnum[i];
+		}
+		
+		
+		this.config.target=+document.getElementById("target").value;
+		this.config.marginrate=+document.getElementById("marginrate").value;
+		this.config.maxmargin=+document.getElementById("maxmargin").value;
+		this.config.listnum=+document.getElementById("listnum").value;
 		
 		this.config.kvalidList=[];
 		this.config.kvalidListInv={};
 		this.config.knum=0;
+		
+		//無効な艦スロットは抜いて前に詰める
 		for(i=0;i<6;++i){
 			if(document.getElementById("kvalid"+(i+1)).checked){
 				++this.config.knum;
@@ -170,7 +207,6 @@ Optimizer.prototype={
 			}
 		}
 		
-		this.config.acpow=new Array(4*this.config.knum);
 		this.config.acnum=[];
 		
 		for(r=0;r<6;++r){
@@ -179,33 +215,60 @@ Optimizer.prototype={
 			var tstr="acvalid"+(r+1)+"_"+(c+1);
 			var isValid=(document.getElementById(tstr).checked);
 			tstr="acnum"+(r+1)+"_"+(c+1);
-			this.config.acnum.push(isValid?parseInt(document.getElementById(tstr).value,10):0);
+			this.config.acnum.push(isValid?(+document.getElementById(tstr).value):0);
 		}}
-		
-		this.calcAllAcpow();
 	},
 	
+	//Buggy
 	calcAllAcpow: function(){
 		for(i=0;i<4*this.config.knum;++i){
-			this.config.acpow[i]=calcAcpow(this.config.acnum[i],this.config.apow,this.config.bonus);
+			this.config.acpow[i]=calcAcpow(this.config.acnum[i], this.config.aspow, this.config.bonus);
 		}
 	},
 
-	calcAllPattern_r: function(head,state,value){
-		if(head<4*this.config.knum){
-			//立てない
-			this.calcAllPattern_r(head+1.,state,value);
+	//v0
+	//~ calcAllPattern_r: function(head,state,value){
+		//~ if(head<4*this.config.knum){
+			//~ //立てない
+			//~ this.calcAllPattern_r(head+1.,state,value);
 			
-			//立てる
-			if(this.config.acpow[head]>0 && value<Math.floor(this.config.maxmargin*this.config.target))
-				this.calcAllPattern_r(head+1,state|(1<<head),value+this.config.acpow[head]);
-		}
-		else{
-			this.dp[state]=value;
-			var tval=value-Math.floor(this.config.target*this.config.marginrate);
-			if(tval>=0){
-				var res=new ResRec(state,value);
-				this.list.push(res);
+			//~ //立てる
+			//~ if(this.config.acpow[head]>0 && value<Math.floor(this.config.maxmargin*this.config.target))
+				//~ this.calcAllPattern_r(head+1,state|(1<<head),value+this.config.acpow[head]);
+		//~ }
+		//~ else{
+			//~ this.dp[state]=value;
+			//~ var tval=value-Math.floor(this.config.target*this.config.marginrate);
+			//~ if(tval>=0){
+				//~ var res=new ResRec(state,value);
+				//~ this.list.push(res);
+				//~ if(this.list.size()>this.config.listnum) this.list.pop();
+			//~ }
+		//~ }
+	//~ },
+	
+	calcAllPattern_r: function(head, state, anum){
+		if(head<4*this.config.knum){
+			//0
+			this.calcAllPattern_r(head+1,state.clone(),anum.concat());
+			//k1~
+			if(this.config.acnum[head]>0 && state.value<Math.floor(this.config.target*this.config.maxmargin)){ //有効スロット&&上限超えてない
+				for(asidx=this.config.askinds; asidx>=1; --asidx){ //全ての機種について 降順にやる
+					if(anum[asidx-1]>0){ //まだ残ってる
+						new_state=new ResRec(state.state.concat(),state.value);
+						new_state.state[0]|=(1<<head);
+						new_state.state[asidx]|=(1<<head);
+						new_state.value+=calcAcpow(this.config.acnum[head],this.config.aspow[asidx-1],this.config.bonus);
+						new_anum=anum.concat();
+						--new_anum[asidx-1];
+						this.calcAllPattern_r(head+1,new_state, new_anum);
+					}
+				}
+			}
+		}else{
+			//結果記入
+			if(state.value>=Math.floor(this.config.target*this.config.marginrate)){
+				this.list.push(state);
 				if(this.list.size()>this.config.listnum) this.list.pop();
 			}
 		}
@@ -213,24 +276,20 @@ Optimizer.prototype={
 
 	execute: function(){
 		this.readData();
-		this.calcAllPattern_r(0,0,0);
+		var tstate=new Array(this.config.askinds+1);
+		for(i=0;i<tstate.length;++i) tstate[i]=0;
+		var state=new ResRec(tstate,0);
+		this.calcAllPattern_r(0, state, this.config.asnum.concat());
 	},
 	
 	showAll: function(){
 		var str="";
 		
-		for(r=0;r<this.config.knum;++r){
-		for(c=0;c<4;++c){
-			str+=""+ this.config.acpow[c+r*4] +" ";
-		}
-			str+="<BR />\n";
-		}
-		
 		var tlist=this.list.clone();
 		str+="target: "+Math.floor(this.config.target*this.config.marginrate)+"<BR />\n";
 		while(!tlist.empty()){
 			var res=tlist.pop();
-			str+=("000000"+bitrev(res.state,4*this.config.knum).toString(16)).slice(-this.config.knum)+" "+bitcount(res.state)+" "+res.value+"<BR />\n";
+			str+=("000000"+bitrev(res.state[0],4*this.config.knum).toString(16)).slice(-this.config.knum)+" "+bitcount(res.state[0])+" "+res.value+"<BR />\n";
 			this.orderedlist.push(res);
 		}
 		document.getElementById("status").innerHTML=str;
@@ -239,35 +298,39 @@ Optimizer.prototype={
 	},
 	
 	showNext: function(){
+		++this.curListIdx;
 		if(this.curListIdx<this.orderedlist.length){
 			var acsum=0;
 			var res=this.orderedlist[this.orderedlist.length-this.curListIdx-1]; //後ろから取る
 			//var res=this.orderedlist.shift(); //前から取る
 			this.curRes=res.clone();
-			//this.curRes.state=0;
-			this.curResAK=new Array(c+r*4);
+			this.curRes.state[0]=0;
 			for(i=0;i<this.curResAK.length;++i) this.curResAK[i]=0;
 			for(r=0;r<6;++r){
 			for(c=0;c<4;++c){
 				var id="actext"+ (r+1) +"_"+ (c+1);
-				if((r in this.config.kvalidListInv)&&(res.state&(1<<(c+this.config.kvalidListInv[r]*4)))!=0){
-					//this.curRes.state|=(1<<(c+r*4));
-					this.curResAK[c+r*4]=10;
-					document.getElementById(id).innerHTML="+10";
+				var mask=(1<<(c+this.config.kvalidListInv[r]*4));
+				if((r in this.config.kvalidListInv)&&(res.state[0]&mask)!=0){
+					for(i=0;i<this.config.askinds;++i){
+						if((res.state[i+1]&mask)!=0) break;
+					}
+					this.curRes.state[0]|=(1<<(c+r*4));
+					this.curResAK[c+r*4]=this.config.aspow[i];
+					document.getElementById(id).innerHTML=(this.config.aspow[i]>0?("+"+this.config.aspow[i]):"");
 				}
 				else{
 					document.getElementById(id).innerHTML="";
 				}
 			}}
 			
-			document.getElementById("totalacpow").innerHTML="total: "+res.value+" | anum: "+bitcount(res.state)+" | remain: "+(this.orderedlist.length-this.curListIdx-1);
-			
-			++this.curListIdx;
+			document.getElementById("totalacpow").innerHTML="total: "+res.value+" | anum: "+bitcount(res.state[0])+" | remain: "+(this.orderedlist.length-this.curListIdx-1);
 		}
 		else{
-			alert("end of the list. Return to start.");
-			this.curListIdx=0;
-			this.showNext();
+			if(this.orderedlist.length>1){
+				alert("end of the list. Return to start.");
+				this.curListIdx=-1;
+				this.showNext();
+			}
 		}
 	},
 	
@@ -280,14 +343,86 @@ Optimizer.prototype={
 
 var optimizer=new Optimizer;
 
+function onClick_form1_as_addcolumn(){
+	var taspow=[];
+	var tasnum=[];
+	var askinds=1;
+	for(askinds=1;askinds<=9;++askinds){
+		var col=document.getElementById("aspow_"+askinds);
+		if(col==null) break;
+		taspow.push(col.value);
+		tasnum.push(document.getElementById("asnum_"+askinds).value);
+	}
+	if(askinds==10) return;
+	--askinds;
+	
+	var str=
+	"<TR>\n"+
+	"<TD><BUTTON id=\"as_addcolumn\" onClick=\"onClick_form1_as_addcolumn()\">add</BUTTON></TD>\n"+
+	"</TR>\n"+
+	"<TR>\n";
+	for(i=1;i<=askinds;++i){
+		str+=
+		"<TD>\n"+
+		"<INPUT id=\"aspow_"+i+"\" type=\"text\" size=\"2\"  value=\""+taspow[i-1]+"\" /><BR />\n"+
+		"<INPUT id=\"asnum_"+i+"\" type=\"text\" size=\"2\"  value=\""+tasnum[i-1]+"\" /><BR />\n"+
+		"<BUTTON id=\"asdel_"+i+"\" onClick=\"onClick_form1_asdel('asdel_"+i+"')\">del</BUTTON>\n"+
+		"</TD>\n";
+	}
+	++askinds;
+	str+=
+	"<TD>\n"+
+	"<INPUT id=\"aspow_"+askinds+"\" type=\"text\" size=\"2\"  value=\"+0\" /><BR />\n"+
+	"<INPUT id=\"asnum_"+i+"\" type=\"text\" size=\"2\"  value=\"0\" /><BR />\n"+
+	"<BUTTON id=\"asdel_"+i+"\" onClick=\"onClick_form1_asdel('asdel_"+i+"')\">del</BUTTON>\n"+
+	"</TD>\n";
+	str+="</TR>\n";
+	document.getElementById("astab").innerHTML=str;
+}
+function onClick_form1_asdel(id){
+	var asidx=+id.slice(-1)-1;
+	
+	var taspow=[];
+	var tasnum=[];
+	for(askinds=1;askinds<=9;++askinds){
+		var col=document.getElementById("aspow_"+askinds);
+		if(col==undefined) break;
+		taspow.push(col.value);
+		tasnum.push(document.getElementById("asnum_"+askinds).value);
+	}
+	--askinds;
+	if(askinds<=1 || asidx>=askinds) return;
+	
+	taspow.splice(asidx,1);
+	tasnum.splice(asidx,1);
+	--askinds;
+	
+	var str=
+	"<TR>\n"+
+	"<TD><BUTTON id=\"as_addcolumn\" onClick=\"onClick_form1_as_addcolumn()\">add</BUTTON></TD>\n"+
+	"</TR>\n"+
+	"<TR>\n";
+	for(i=1;i<=askinds;++i){
+		str+=
+		"<TD>\n"+
+		"<INPUT id=\"aspow_"+i+"\" type=\"text\" size=\"2\"  value=\""+taspow[i-1]+"\" /><BR />\n"+
+		"<INPUT id=\"asnum_"+i+"\" type=\"text\" size=\"2\"  value=\""+tasnum[i-1]+"\" /><BR />\n"+
+		"<BUTTON id=\"asdel_"+i+"\" onClick=\"onClick_form1_asdel('asdel_"+i+"')\">del</BUTTON>\n"+
+		"</TD>\n";
+	}
+	str+="</TR>\n";
+	document.getElementById("astab").innerHTML=str;
+}
+
 function onClick_form1_execute(){
 	optimizer.init();
 	optimizer.execute();
 	optimizer.showAll();
+	optimizer.curListIdx=-1;
 	optimizer.showNext();
 }
 function onClick_form1_next(){
-	optimizer.showNext();
+	if(optimizer.orderedlist.length>0) optimizer.showNext();
 }
 
 function onChange_form1_knamelist(id){
@@ -315,28 +450,28 @@ function onChange_form1_knamelist(id){
 function onClick_form1_acinc(id){
 	var kidx=+id.substr(-3,1)-1;
 	var aidx=+id.slice(-1)-1;
-	optimizer.curRes.state|=(1<<(aidx+kidx*4));
+	optimizer.curRes.state[0]|=(1<<(aidx+kidx*4));
 	++optimizer.curResAK[aidx+kidx*4];
 	document.getElementById("actext"+(kidx+1)+"_"+(aidx+1)).innerHTML="+"+optimizer.curResAK[aidx+kidx*4];
-	document.getElementById("totalacpow").innerHTML="total: "+calcAllAcpowSum()+" | anum: "+bitcount(optimizer.curRes.state)+" | remain: "+(optimizer.orderedlist.length-optimizer.curListIdx-1);
+	document.getElementById("totalacpow").innerHTML="total: "+calcAllAcpowSum()+" | anum: "+bitcount(optimizer.curRes.state[0])+" | remain: "+(optimizer.orderedlist.length-optimizer.curListIdx-1);
 }
 function onClick_form1_acincinc(id){
 	var kidx=+id.substr(-3,1)-1;
 	var aidx=+id.slice(-1)-1;
-	optimizer.curRes.state|=(1<<(aidx+kidx*4));
+	optimizer.curRes.state[0]|=(1<<(aidx+kidx*4));
 	optimizer.curResAK[aidx+kidx*4]+=10;
 	document.getElementById("actext"+(kidx+1)+"_"+(aidx+1)).innerHTML="+"+optimizer.curResAK[aidx+kidx*4];
-	document.getElementById("totalacpow").innerHTML="total: "+calcAllAcpowSum()+" | anum: "+bitcount(optimizer.curRes.state)+" | remain: "+(optimizer.orderedlist.length-optimizer.curListIdx-1);
+	document.getElementById("totalacpow").innerHTML="total: "+calcAllAcpowSum()+" | anum: "+bitcount(optimizer.curRes.state[0])+" | remain: "+(optimizer.orderedlist.length-optimizer.curListIdx-1);
 }
 function onClick_form1_acdec(id){
 	var kidx=+id.substr(-3,1)-1;
 	var aidx=+id.slice(-1)-1;
 	if(optimizer.curResAK[aidx+kidx*4]>0){
 		--optimizer.curResAK[aidx+kidx*4];
-		if(optimizer.curResAK[aidx+kidx*4]==0) optimizer.curRes.state&=~(1<<(aidx+kidx*4));
+		if(optimizer.curResAK[aidx+kidx*4]==0) optimizer.curRes.state[0]&=~(1<<(aidx+kidx*4));
 		if(optimizer.curResAK[aidx+kidx*4]<0) optimizer.curResAK[aidx+kidx*4]=0;
 		document.getElementById("actext"+(kidx+1)+"_"+(aidx+1)).innerHTML=(optimizer.curResAK[aidx+kidx*4]>0?("+"+optimizer.curResAK[aidx+kidx*4]):"");
-		document.getElementById("totalacpow").innerHTML="total: "+calcAllAcpowSum()+" | anum: "+bitcount(optimizer.curRes.state)+" | remain: "+(optimizer.orderedlist.length-optimizer.curListIdx-1);
+		document.getElementById("totalacpow").innerHTML="total: "+calcAllAcpowSum()+" | anum: "+bitcount(optimizer.curRes.state[0])+" | remain: "+(optimizer.orderedlist.length-optimizer.curListIdx-1);
 	}
 }
 function onClick_form1_acdecdec(id){
@@ -345,9 +480,9 @@ function onClick_form1_acdecdec(id){
 	if(optimizer.curResAK[aidx+kidx*4]>0){
 		optimizer.curResAK[aidx+kidx*4]-=10;
 		if(optimizer.curResAK[aidx+kidx*4]<0) optimizer.curResAK[aidx+kidx*4]=0;
-		if(optimizer.curResAK[aidx+kidx*4]==0) optimizer.curRes.state&=~(1<<(aidx+kidx*4));
+		if(optimizer.curResAK[aidx+kidx*4]==0) optimizer.curRes.state[0]&=~(1<<(aidx+kidx*4));
 		document.getElementById("actext"+(kidx+1)+"_"+(aidx+1)).innerHTML=(optimizer.curResAK[aidx+kidx*4]>0?("+"+optimizer.curResAK[aidx+kidx*4]):"");
-		document.getElementById("totalacpow").innerHTML="total: "+calcAllAcpowSum()+" | anum: "+bitcount(optimizer.curRes.state)+" | remain: "+(optimizer.orderedlist.length-optimizer.curListIdx-1);
+		document.getElementById("totalacpow").innerHTML="total: "+calcAllAcpowSum()+" | anum: "+bitcount(optimizer.curRes.state[0])+" | remain: "+(optimizer.orderedlist.length-optimizer.curListIdx-1);
 	}
 }
 

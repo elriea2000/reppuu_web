@@ -1,5 +1,6 @@
 /**
  * BinaryHeap
+ * http://blog.justoneplanet.info/2011/01/12/javascript%E3%81%A7%E4%BA%8C%E5%88%86%E3%83%92%E3%83%BC%E3%83%97%EF%BC%88%E5%84%AA%E5%85%88%E5%BA%A6%E3%81%A4%E3%81%8D%E3%82%AD%E3%83%A5%E3%83%BC%EF%BC%89/
  */
 var BinaryHeap = function(){
     var self = this;

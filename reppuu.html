@@ -7,7 +7,7 @@
 </HEAD>
 <BODY>
 
-<H1>艦これ制空値最適化ツール“烈風拳であります！”ブラウザ版 v0.4</H1>
+<H1>艦これ制空値最適化ツール“烈風拳であります！”ブラウザ版 v1.0</H1>
 <P>
 <A href="readme.txt" target="new">せつめい</A>
 </P>
@@ -15,9 +15,6 @@
 <P>
 
 <TABLE>
-<TR>
-<TD>apow</TD><TD><INPUT id="apow" type="" name="apow" value="10" /></TD><TD>使用する艦載機の対空値</TD>
-</TR>
 <TR>
 <TD>target</TD><TD><INPUT id="target" type="" name="target" value="182" /></TD><TD>目標の制空値</TD>
 </TR>
@@ -29,6 +26,20 @@
 </TR>
 <TR>
 <TD>listnum</TD><TD><INPUT id="listnum" type="" name="listnum" value="20" /></TD><TD>表示する結果リストの最大長</TD>
+</TR>
+</TABLE>
+
+各種艦載機の対空値と所持数
+<TABLE id="astab">
+<TR>
+<TD><BUTTON id="as_addcolumn" onClick="onClick_form1_as_addcolumn()">add</BUTTON></TD>
+</TR>
+<TR>
+<TD>
+<INPUT id="aspow_1" type="text" size="2"  value="+10" /><BR />
+<INPUT id="asnum_1" type="text" size="2"  value="24" /><BR />
+<BUTTON id="asdel_1" onClick="onClick_form1_asdel('asdel_1')">del</BUTTON>
+</TD>
 </TR>
 </TABLE>
 
@@ -585,10 +596,10 @@ status
 
 <P>
 Copyright (c) 2016-. suzuryo all rights researved.<BR />
-<A href="https://githab.org/elriea2000/reppuu_web/">https://githab.org/elriea2000/reppuu_web/</A>
+<A href="https://github.com/elriea2000/reppuu_web">https://github.com/elriea2000/reppuu_web</A>
 </P>
 <!--
- * 制空値最適化プログラム“烈風拳であります！”ブラウザ版 v0.3
+ * 制空値最適化プログラム“烈風拳であります！”ブラウザ版 v1.0
  * This source and related resources are available under BSD License.
  * Copyright (c) 2016-, suzuryo All rights reserved.
 -->
