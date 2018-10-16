@@ -1,6 +1,6 @@
 制空値最適化ツール“烈風拳であります！”ブラウザ版 v1.0
 
-https://elriea2000.githubpages.io/reppuu_web/reppuu.html
+http://elriea2000.github.io/reppuu_web/reppuu.html
 
 
 ＊概要
