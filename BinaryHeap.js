@@ -10,7 +10,7 @@ BinaryHeap.prototype._build = function(){
     var self = this;
     /**
      * heapify
-     * 3—v‘f‚ğ”äŠr‚µÅ‚à¬‚³‚¢—v‘f‚ğe‚Æ‚·‚é
+     * 3è¦ç´ ã‚’æ¯”è¼ƒã—æœ€ã‚‚å°ã•ã„è¦ç´ ã‚’è¦ªã¨ã™ã‚‹
      * @param {array} ary
      * @param {int} i
      * @param {max} max
@@ -54,7 +54,7 @@ BinaryHeap.prototype._build = function(){
 }
 /**
  * BinaryHeap::push
- * —v‘f‚ğƒq[ƒv‚É’Ç‰Á‚·‚é
+ * è¦ç´ ã‚’ãƒ’ãƒ¼ãƒ—ã«è¿½åŠ ã™ã‚‹
  * @param {Object} elm
  * @param {int} priority
  */
@@ -65,7 +65,7 @@ BinaryHeap.prototype.push = function(elm){
 }
 /**
  * BinaryHeap::changePriority
- * —v‘f‚Ì—Dæ“x‚ğ•ÏX‚·‚é
+ * è¦ç´ ã®å„ªå…ˆåº¦ã‚’å¤‰æ›´ã™ã‚‹
  * @param {Object} elm
  * @param {int} priority
  */
@@ -83,7 +83,7 @@ BinaryHeap.prototype.push = function(elm){
 //~ }
 /**
  * BinaryHeap::front
- * —Dæ“x‚Ì‚‚¢—v‘f‚ğæ“¾‚·‚é
+ * å„ªå…ˆåº¦ã®é«˜ã„è¦ç´ ã‚’å–å¾—ã™ã‚‹
  */
 BinaryHeap.prototype.front = function(){
     var self = this;
@@ -91,7 +91,7 @@ BinaryHeap.prototype.front = function(){
 }
 /**
  * BinaryHeap::pop
- * æ“ª—v‘f‚ğÌ‚Ä‚é
+ * å…ˆé ­è¦ç´ ã‚’æ¨ã¦ã‚‹
  */
 BinaryHeap.prototype.pop = function(){
     var self = this;
@@ -101,7 +101,7 @@ BinaryHeap.prototype.pop = function(){
 }
 /**
  * BinaryHeap::getList
- * ƒq[ƒv‚ğ•Ô‚·
+ * ãƒ’ãƒ¼ãƒ—ã‚’è¿”ã™
  */
 BinaryHeap.prototype.getList = function(){
     var self = this;
@@ -109,7 +109,7 @@ BinaryHeap.prototype.getList = function(){
 }
 /**
  * BinaryHeap::size
- * ƒTƒCƒY‚ğ•Ô‚·
+ * ã‚µã‚¤ã‚ºã‚’è¿”ã™
  */
 BinaryHeap.prototype.size = function(){
     var self = this;
@@ -117,7 +117,7 @@ BinaryHeap.prototype.size = function(){
 }
 /**
  * BinaryHeap::empty
- * ‹ó‚©‚Ç‚¤‚©H
+ * ç©ºã‹ã©ã†ã‹ï¼Ÿ
  */
 BinaryHeap.prototype.empty = function(){
     var self = this;
@@ -125,7 +125,7 @@ BinaryHeap.prototype.empty = function(){
 }
 /**
  * BinaryHeap::clone
- * ƒfƒB[ƒvƒRƒs[—p
+ * ãƒ‡ã‚£ãƒ¼ãƒ—ã‚³ãƒ”ãƒ¼ç”¨
  */
 BinaryHeap.prototype.clone = function(){
 	var res=new BinaryHeap;
@@ -142,3 +142,4 @@ BinaryHeap.prototype.clone = function(){
 //~ pq.insert('father', 1);
 //~ pq.insert('mother', 2);
 //~ console.log(pq.getList());
+
