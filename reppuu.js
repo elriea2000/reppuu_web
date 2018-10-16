@@ -1,5 +1,5 @@
 /*
- * §‹ó’lÅ“K‰»ƒvƒƒOƒ‰ƒ€g—ó•—Œ‚Å‚ ‚è‚Ü‚·Ihƒuƒ‰ƒEƒU”Å v1.0
+ * åˆ¶ç©ºå€¤æœ€é©åŒ–ãƒ—ãƒ­ã‚°ãƒ©ãƒ â€œçƒˆé¢¨æ‹³ã§ã‚ã‚Šã¾ã™ï¼â€ãƒ–ãƒ©ã‚¦ã‚¶ç‰ˆ v1.0
  * This source and related resources are available under BSD License.
  * Copyright (c) 2016-, suzuryo All rights reserved.
  */
@@ -38,79 +38,79 @@ var KanData=function(name,id,acnum){
 	this.acnum=acnum;
 };
 var KanDatabase={
-	"Akagi" :			new KanData("Ôé",	100006,	[18,18,27,10]),
-	"Kaga" :			new KanData("‰Á‰ê",	100007,	[18,18,45,12]),
-	"Souryuu" :		new KanData("‘“—´",	100008,	[12,27,18,7]),
-	"Hiryuu" :			new KanData("”ò—´",	100009,	[12,27,18,7]),
-	"Shoukaku" :		new KanData("ãÄ’ß",	100106,	[21,21,21,12]),
-	"Zuikaku" :			new KanData("’ß",	100107,	[21,21,21,12]),
-	"Taihou" :			new KanData("‘å–P",	100153,	[18,18,18,7]),
-	"Unryuu" :			new KanData("‰_—´",	100201,	[18,24,3,6]),
-	"Amagi" :			new KanData("“Vé",	100202,	[18,24,3,6]),
-	"Katsuragi" :		new KanData("Š‹é",	100203,	[18,24,3,6]),
+	"Akagi" :			new KanData("èµ¤åŸ",	100006,	[18,18,27,10]),
+	"Kaga" :			new KanData("åŠ è³€",	100007,	[18,18,45,12]),
+	"Souryuu" :		new KanData("è’¼é¾",	100008,	[12,27,18,7]),
+	"Hiryuu" :			new KanData("é£›é¾",	100009,	[12,27,18,7]),
+	"Shoukaku" :		new KanData("ç¿”é¶´",	100106,	[21,21,21,12]),
+	"Zuikaku" :			new KanData("ç‘é¶´",	100107,	[21,21,21,12]),
+	"Taihou" :			new KanData("å¤§é³³",	100153,	[18,18,18,7]),
+	"Unryuu" :			new KanData("é›²é¾",	100201,	[18,24,3,6]),
+	"Amagi" :			new KanData("å¤©åŸ",	100202,	[18,24,3,6]),
+	"Katsuragi" :		new KanData("è‘›åŸ",	100203,	[18,24,3,6]),
 	"GrafZeppelin" :		new KanData("Graf Zeppelin",	100232,	[20,13,10,0]),
 
-	"Akagi_c" :			new KanData("Ôé‰ü",	110006,	[20,20,32,10]),
-	"Kaga_c" :			new KanData("‰Á‰ê‰ü",	110007,	[20,20,46,12]),
-	"Souryuu_c" :		new KanData("‘“—´‰ü",	110008,	[18,27,18,10]),
-	"Hiryuu_c" :		new KanData("”ò—´‰ü",	110009,	[18,27,18,10]),
-	"Shoukaku_c" :		new KanData("ãÄ’ß‰ü",	110106,	[24,24,24,12]),
-	"Zuikaku_c" :		new KanData("’ß‰ü",	110108,	[24,24,24,12]),
-	"Taihou_c" :		new KanData("‘å–P‰ü",	110156,	[30,24,24,8]),
-	"Unryuu_c" :		new KanData("‰_—´‰ü",	110206,	[18,21,27,3]),
-	"Amagi_c" :		new KanData("“Vé‰ü",	110229,	[18,21,27,3]),
-	"Katsuragi_c" :		new KanData("Š‹é‰ü",	110230,	[18,21,27,3]),
-	"GrafZeppelin_c" :	new KanData("Graf Zeppelin‰ü",	110232,	[30,13,10,3]),
+	"Akagi_c" :			new KanData("èµ¤åŸæ”¹",	110006,	[20,20,32,10]),
+	"Kaga_c" :			new KanData("åŠ è³€æ”¹",	110007,	[20,20,46,12]),
+	"Souryuu_c" :		new KanData("è’¼é¾æ”¹",	110008,	[18,27,18,10]),
+	"Hiryuu_c" :		new KanData("é£›é¾æ”¹",	110009,	[18,27,18,10]),
+	"Shoukaku_c" :		new KanData("ç¿”é¶´æ”¹",	110106,	[24,24,24,12]),
+	"Zuikaku_c" :		new KanData("ç‘é¶´æ”¹",	110108,	[24,24,24,12]),
+	"Taihou_c" :		new KanData("å¤§é³³æ”¹",	110156,	[30,24,24,8]),
+	"Unryuu_c" :		new KanData("é›²é¾æ”¹",	110206,	[18,21,27,3]),
+	"Amagi_c" :		new KanData("å¤©åŸæ”¹",	110229,	[18,21,27,3]),
+	"Katsuragi_c" :		new KanData("è‘›åŸæ”¹",	110230,	[18,21,27,3]),
+	"GrafZeppelin_c" :	new KanData("Graf Zeppelinæ”¹",	110232,	[30,13,10,3]),
 
-	"Souryuu_cc" :		new KanData("‘“—´‰ü“ñ",	120197,	[18,35,20,6]),
-	"Hiryy_cc" :		new KanData("”ò—´‰ü“ñ",	120196,	[18,36,22,3]),
-	"Shoukaku_cc" :		new KanData("ãÄ’ß‰ü“ñ",	120261,	[27,27,27,12]),
-	"Shoukaku_cc2" :	new KanData("ãÄ’ß‰ü“ñb",	121266,	[34,21,12,9]),
-	"Zuikaku_cc" :		new KanData("’ß‰ü“ñ",	120262,	[28,26,26,13]),
-	"Zuikaku_cc2" :		new KanData("’ß‰ü“ñb",	121267,	[34,24,12,6]),
+	"Souryuu_cc" :		new KanData("è’¼é¾æ”¹äºŒ",	120197,	[18,35,20,6]),
+	"Hiryy_cc" :		new KanData("é£›é¾æ”¹äºŒ",	120196,	[18,36,22,3]),
+	"Shoukaku_cc" :		new KanData("ç¿”é¶´æ”¹äºŒ",	120261,	[27,27,27,12]),
+	"Shoukaku_cc2" :	new KanData("ç¿”é¶´æ”¹äºŒç”²",	121266,	[34,21,12,9]),
+	"Zuikaku_cc" :		new KanData("ç‘é¶´æ”¹äºŒ",	120262,	[28,26,26,13]),
+	"Zuikaku_cc2" :		new KanData("ç‘é¶´æ”¹äºŒç”²",	121267,	[34,24,12,6]),
 
-	"Houshou" :		new KanData("–PãÄ",	200025,	[8,11,0,0]),
-	"Ryuujou" :		new KanData("—´éˆ",	200030,	[9,24,5,0]),
-	"Hiyou" :			new KanData("”ò‘é",	200065,	[12,18,18,10]),
-	"Jun-you" :		new KanData("”¹‘é",	200066,	[12,18,18,10]),
-	"Shouhou" :		new KanData("Ë–P",	200094,	[18,9,3,0]),
-	"Zuihou" :			new KanData("–P",	200112,	[18,9,3,0]),
-	"Chitose_3" :		new KanData("çÎq",	202104,	[21,9,6,0]),
-	"Chiyoda_3" :		new KanData("ç‘ã“cq",	202105,	[21,9,6,0]),
-	"Ryuuhou" :		new KanData("—´–P",	200185,	[18,7,6,0]),
+	"Houshou" :		new KanData("é³³ç¿”",	200025,	[8,11,0,0]),
+	"Ryuujou" :		new KanData("é¾é©¤",	200030,	[9,24,5,0]),
+	"Hiyou" :			new KanData("é£›é·¹",	200065,	[12,18,18,10]),
+	"Jun-you" :		new KanData("éš¼é·¹",	200066,	[12,18,18,10]),
+	"Shouhou" :		new KanData("ç¥¥é³³",	200094,	[18,9,3,0]),
+	"Zuihou" :			new KanData("ç‘é³³",	200112,	[18,9,3,0]),
+	"Chitose_3" :		new KanData("åƒæ­³èˆª",	202104,	[21,9,6,0]),
+	"Chiyoda_3" :		new KanData("åƒä»£ç”°èˆª",	202105,	[21,9,6,0]),
+	"Ryuuhou" :		new KanData("é¾é³³",	200185,	[18,7,6,0]),
 
-	"Houshou_c" :		new KanData("–PãÄ‰ü",	210025,	[14,16,12,0]),
-	"Ryuujou_c" :		new KanData("—´éˆ‰ü",	210030,	[9,24,5,5]),
-	"Hiyou_c" :			new KanData("”ò‘é‰ü",	210065,	[18,18,18,12]),
-	"Jun-you_c" :		new KanData("”¹‘é‰ü",	210066,	[18,18,18,12]),
-	"Shouhou_c" :		new KanData("Ë–P‰ü",	210094,	[18,12,12,6]),
-	"Zuihou_c" :		new KanData("–P‰ü",	210113,	[18,12,12,6]),
-	"Chitose_3c" :		new KanData("çÎq‰ü",	212104,	[24,16,8,8]),
-	"Chiyoda_3c" :		new KanData("ç‘ã“cq‰ü",	212105,	[24,16,8,8]),
-	"Ryuuhou_c" :		new KanData("—´–P‰ü",	210190,	[21,9,9,6]),
+	"Houshou_c" :		new KanData("é³³ç¿”æ”¹",	210025,	[14,16,12,0]),
+	"Ryuujou_c" :		new KanData("é¾é©¤æ”¹",	210030,	[9,24,5,5]),
+	"Hiyou_c" :			new KanData("é£›é·¹æ”¹",	210065,	[18,18,18,12]),
+	"Jun-you_c" :		new KanData("éš¼é·¹æ”¹",	210066,	[18,18,18,12]),
+	"Shouhou_c" :		new KanData("ç¥¥é³³æ”¹",	210094,	[18,12,12,6]),
+	"Zuihou_c" :		new KanData("ç‘é³³æ”¹",	210113,	[18,12,12,6]),
+	"Chitose_3c" :		new KanData("åƒæ­³èˆªæ”¹",	212104,	[24,16,8,8]),
+	"Chiyoda_3c" :		new KanData("åƒä»£ç”°èˆªæ”¹",	212105,	[24,16,8,8]),
+	"Ryuuhou_c" :		new KanData("é¾é³³æ”¹",	210190,	[21,9,9,6]),
 
-	"Ryuujou_cc" :		new KanData("—´éˆ‰ü“ñ",	220157,	[18,28,6,3]),
-	"Jun-you_cc" :		new KanData("”¹‘é‰ü“ñ",	220208,	[24,18,20,4]),
-	"Chitose_3cc" :		new KanData("çÎq‰ü“ñ",	220121,	[24,16,11,8]),
-	"Chiyoda_3cc" :		new KanData("ç‘ã“cq‰ü“ñ",	220122,	[24,16,11,8]),
+	"Ryuujou_cc" :		new KanData("é¾é©¤æ”¹äºŒ",	220157,	[18,28,6,3]),
+	"Jun-you_cc" :		new KanData("éš¼é·¹æ”¹äºŒ",	220208,	[24,18,20,4]),
+	"Chitose_3cc" :		new KanData("åƒæ­³èˆªæ”¹äºŒ",	220121,	[24,16,11,8]),
+	"Chiyoda_3cc" :		new KanData("åƒä»£ç”°èˆªæ”¹äºŒ",	220122,	[24,16,11,8]),
 	
-	"Akitsumaru_c" :		new KanData("‚ ‚«‚ÂŠÛ‰ü",	210166,	[8,8,8,0])
+	"Akitsumaru_c" :		new KanData("ã‚ãã¤ä¸¸æ”¹",	210166,	[8,8,8,0])
 };
 
 
 var Config=function(){
-	this.knum=3; //int		//—LŒøŠÍ‚Ì”
-	this.target=182; //int		//–Ú•W§‹ó’l
-	this.marginrate=1.1; //float	//ƒ}[ƒWƒ“
-	this.maxmargin=2.0; //float	//ãŒÀƒ}[ƒWƒ“
-	this.askinds=4; //int		//‹@í‚Ìí—Ş”
-	this.aspow=[]; //Array		//Še‹@í‚Ì§‹ó’l
-	this.asnum=[];  //Array	//Še‹@í‚ÌŠ”
-	this.bonus=25; //int		//n—û“xƒ{[ƒiƒX
-	this.listnum=20; //int		//Œ‹‰ÊƒŠƒXƒg’·
-	this.acnum=[]; //Array		//ŠeƒXƒƒbƒg‚Ì‹@”i–³Œø‚¾‚Æ©“®“I‚É0‚Éj
-	this.kvalidList=[]; //Array	//—LŒøŠÍ‚ÌƒŠƒXƒg
-	this.kvalidListInv={}; //Map	//‹tˆø‚«
+	this.knum=3; //int		//æœ‰åŠ¹è‰¦ã®æ•°
+	this.target=182; //int		//ç›®æ¨™åˆ¶ç©ºå€¤
+	this.marginrate=1.1; //float	//ãƒãƒ¼ã‚¸ãƒ³
+	this.maxmargin=2.0; //float	//ä¸Šé™ãƒãƒ¼ã‚¸ãƒ³
+	this.askinds=4; //int		//æ©Ÿç¨®ã®ç¨®é¡æ•°
+	this.aspow=[]; //Array		//å„æ©Ÿç¨®ã®åˆ¶ç©ºå€¤
+	this.asnum=[];  //Array	//å„æ©Ÿç¨®ã®æ‰€æŒæ•°
+	this.bonus=25; //int		//ç†Ÿç·´åº¦ãƒœãƒ¼ãƒŠã‚¹
+	this.listnum=20; //int		//çµæœãƒªã‚¹ãƒˆé•·
+	this.acnum=[]; //Array		//å„ã‚¹ãƒ­ãƒƒãƒˆã®æ©Ÿæ•°ï¼ˆç„¡åŠ¹ã ã¨è‡ªå‹•çš„ã«0ã«ï¼‰
+	this.kvalidList=[]; //Array	//æœ‰åŠ¹è‰¦ã®ãƒªã‚¹ãƒˆ
+	this.kvalidListInv={}; //Map	//é€†å¼•ã
 };
 
 var ResRec=function(state,value){
@@ -172,7 +172,7 @@ Optimizer.prototype={
 		}
 		--askinds;
 		this.config.askinds=askinds;
-		//ƒ\[ƒg‚·‚é
+		//ã‚½ãƒ¼ãƒˆã™ã‚‹
 		taslist.sort(function(a,b){
 			if( a.aspow < b.aspow ) return -1;
 			if( a.aspow > b.aspow ) return 1;
@@ -182,7 +182,7 @@ Optimizer.prototype={
 			this.config.aspow.push(taslist[i].aspow);
 			this.config.asnum.push(taslist[i].asnum);
 		}
-		//–ß‚·
+		//æˆ»ã™
 		for(i=0;i<askinds;++i){
 			document.getElementById("aspow_"+(i+1)).value="+"+this.config.aspow[i];
 			document.getElementById("asnum_"+(i+1)).value=""+this.config.asnum[i];
@@ -198,12 +198,12 @@ Optimizer.prototype={
 		this.config.kvalidListInv={};
 		this.config.knum=0;
 		
-		//–³Œø‚ÈŠÍƒXƒƒbƒg‚Í”²‚¢‚Ä‘O‚É‹l‚ß‚é
+		//ç„¡åŠ¹ãªè‰¦ã‚¹ãƒ­ãƒƒãƒˆã¯æŠœã„ã¦å‰ã«è©°ã‚ã‚‹
 		for(i=0;i<6;++i){
 			if(document.getElementById("kvalid"+(i+1)).checked){
 				++this.config.knum;
 				this.config.kvalidList.push(i);
-				this.config.kvalidListInv[i]=this.config.knum-1; //‹tˆø‚«
+				this.config.kvalidListInv[i]=this.config.knum-1; //é€†å¼•ã
 			}
 		}
 		
@@ -229,10 +229,10 @@ Optimizer.prototype={
 	//v0
 	//~ calcAllPattern_r: function(head,state,value){
 		//~ if(head<4*this.config.knum){
-			//~ //—§‚Ä‚È‚¢
+			//~ //ç«‹ã¦ãªã„
 			//~ this.calcAllPattern_r(head+1.,state,value);
 			
-			//~ //—§‚Ä‚é
+			//~ //ç«‹ã¦ã‚‹
 			//~ if(this.config.acpow[head]>0 && value<Math.floor(this.config.maxmargin*this.config.target))
 				//~ this.calcAllPattern_r(head+1,state|(1<<head),value+this.config.acpow[head]);
 		//~ }
@@ -252,9 +252,9 @@ Optimizer.prototype={
 			//0
 			this.calcAllPattern_r(head+1,state.clone(),anum.concat());
 			//k1~
-			if(this.config.acnum[head]>0 && state.value<Math.floor(this.config.target*this.config.maxmargin)){ //—LŒøƒXƒƒbƒg&&ãŒÀ’´‚¦‚Ä‚È‚¢
-				for(asidx=this.config.askinds; asidx>=1; --asidx){ //‘S‚Ä‚Ì‹@í‚É‚Â‚¢‚Ä ~‡‚É‚â‚é
-					if(anum[asidx-1]>0){ //‚Ü‚¾c‚Á‚Ä‚é
+			if(this.config.acnum[head]>0 && state.value<Math.floor(this.config.target*this.config.maxmargin)){ //æœ‰åŠ¹ã‚¹ãƒ­ãƒƒãƒˆ&&ä¸Šé™è¶…ãˆã¦ãªã„
+				for(asidx=this.config.askinds; asidx>=1; --asidx){ //å…¨ã¦ã®æ©Ÿç¨®ã«ã¤ã„ã¦ é™é †ã«ã‚„ã‚‹
+					if(anum[asidx-1]>0){ //ã¾ã æ®‹ã£ã¦ã‚‹
 						new_state=new ResRec(state.state.concat(),state.value);
 						new_state.state[0]|=(1<<head);
 						new_state.state[asidx]|=(1<<head);
@@ -266,7 +266,7 @@ Optimizer.prototype={
 				}
 			}
 		}else{
-			//Œ‹‰Ê‹L“ü
+			//çµæœè¨˜å…¥
 			if(state.value>=Math.floor(this.config.target*this.config.marginrate)){
 				this.list.push(state);
 				if(this.list.size()>this.config.listnum) this.list.pop();
@@ -301,8 +301,8 @@ Optimizer.prototype={
 		++this.curListIdx;
 		if(this.curListIdx<this.orderedlist.length){
 			var acsum=0;
-			var res=this.orderedlist[this.orderedlist.length-this.curListIdx-1]; //Œã‚ë‚©‚çæ‚é
-			//var res=this.orderedlist.shift(); //‘O‚©‚çæ‚é
+			var res=this.orderedlist[this.orderedlist.length-this.curListIdx-1]; //å¾Œã‚ã‹ã‚‰å–ã‚‹
+			//var res=this.orderedlist.shift(); //å‰ã‹ã‚‰å–ã‚‹
 			this.curRes=res.clone();
 			this.curRes.state[0]=0;
 			for(i=0;i<this.curResAK.length;++i) this.curResAK[i]=0;
@@ -553,3 +553,4 @@ function onClick_form1_acdecodeall(){
 		document.getElementById("acvalid"+idcode+"_4").checked=true;
 	}
 }
+
